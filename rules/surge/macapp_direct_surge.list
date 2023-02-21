@@ -1,0 +1,51 @@
+PROCESS-NAME,QQ jietu plugin
+PROCESS-NAME,Plex
+PROCESS-NAME,Plex Commercial Skipper
+PROCESS-NAME,Plex DLNA Server
+PROCESS-NAME,Plex Media Fingerprinter
+PROCESS-NAME,Plex Media Scanner
+PROCESS-NAME,Plex Relay
+PROCESS-NAME,Plex Transcoder
+PROCESS-NAME,Plex Tuner Service
+PROCESS-NAME,Plex Script Host
+PROCESS-NAME,Plex Media Server
+PROCESS-NAME,DownloadService
+PROCESS-NAME,p4pclient
+PROCESS-NAME,RRShare
+PROCESS-NAME,com.docker.vpnkit
+PROCESS-NAME,wpsoffice
+PROCESS-NAME,wpscloudsvr
+PROCESS-NAME,QQMusic
+PROCESS-NAME,WeChat
+PROCESS-NAME,QQ
+PROCESS-NAME,v2ray
+PROCESS-NAME,UUBooster
+PROCESS-NAME,ss-local
+PROCESS-NAME,pogo
+PROCESS-NAME,aria2c
+PROCESS-NAME,fdm
+PROCESS-NAME,Folx
+PROCESS-NAME,NetTransport
+PROCESS-NAME,Thunder
+PROCESS-NAME,Transmission
+PROCESS-NAME,uTorrent
+PROCESS-NAME,uTorrent Web
+PROCESS-NAME,WebTorrent
+PROCESS-NAME,WebTorrent Helper
+PROCESS-NAME,Mail
+PROCESS-NAME,infuse
+PROCESS-NAME,LightPeek_en
+PROCESS-NAME,Eudb_en_free
+PROCESS-NAME,Adguard
+PROCESS-NAME,CleanMyMac-X
+PROCESS-NAME,CleanMyMac-X Menu
+PROCESS-NAME,CleanMyMac X Updater
+PROCESS-NAME,CleanMyMac-MAS
+PROCESS-NAME,CleanMyMac-MAS Menu
+PROCESS-NAME,S8EX82NJP6.com.macpaw.CleanMyMac-mas.HealthMonitor
+PROCESS-NAME,StocksWidget
+PROCESS-NAME,WeatherWidget
+PROCESS-NAME,Stocks
+PROCESS-NAME,Spotlight
+PROCESS-NAME,AdGuard for Safari
+PROCESS-NAME,/usr/libexec/trustd

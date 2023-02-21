@@ -1,0 +1,12 @@
+payload:
+  - DOMAIN-SUFFIX,xdrig.com
+  - DOMAIN-SUFFIX,access-sngapm.qcloud.com
+  - DOMAIN-SUFFIX,apple.news
+####萤石视频####
+  - DOMAIN,fastgw.ys7.com
+  - DOMAIN,ys-video.aipai.com
+  - DOMAIN,img.ys7.com
+  - DOMAIN,mfs,ys7.com
+################
+  - DOMAIN-SUFFIX,shenyin.name
+  - DOMAIN,api.shenyin.name
