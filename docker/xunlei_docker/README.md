@@ -40,16 +40,16 @@ docker buildx build -t aaa/xunlei ./
 # 如果已经安装过的(/mnt/sdb1/xunlei 目录已存在)，再次安装会复用，而且下载目录不可更改，如果要更改下载目录，请把这个目录删掉重新绑定。
 
 # host网络，默认端口 2345
-docker run -d --name=xunlei --hostname=mynas --net=host -v /mnt/sdb1/xunlei:/xunlei/data -v /mnt/sdb1/downloads:/xunlei/downloads --restart=unless-stopped --privileged cnk3x/xunlei:latest
+docker run -d --name=xunlei --hostname=mynas --net=host -v /mnt/sdb1/xunlei:/xunlei/data -v /mnt/sdb1/downloads:/xunlei/downloads --restart=unless-stopped --privileged wowaqly/xunlei:latest
 
 # host网络，更改端口为 4321
-docker run -d --name=xunlei --hostname=mynas --net=host -e XL_WEB_PORT=4321 -v /mnt/sdb1/xunlei:/xunlei/data -v /mnt/sdb1/downloads:/xunlei/downloads --restart=unless-stopped --privileged cnk3x/xunlei:latest
+docker run -d --name=xunlei --hostname=mynas --net=host -e XL_WEB_PORT=4321 -v /mnt/sdb1/xunlei:/xunlei/data -v /mnt/sdb1/downloads:/xunlei/downloads --restart=unless-stopped --privileged wowaqly/xunlei:latest
 
 # bridge 网络，默认端口 2345
-docker run -d --name=xunlei --hostname=mynas --net=bridge -p 2345:2345 -v /mnt/sdb1/xunlei:/xunlei/data -v /mnt/sdb1/downloads:/xunlei/downloads --restart=unless-stopped --privileged cnk3x/xunlei:latest
+docker run -d --name=xunlei --hostname=mynas --net=bridge -p 2345:2345 -v /mnt/sdb1/xunlei:/xunlei/data -v /mnt/sdb1/downloads:/xunlei/downloads --restart=unless-stopped --privileged wowaqly/xunlei:latest
 
 # bridge 网络，更改端口为 4321
-docker run -d --name=xunlei --hostname=mynas --net=bridge -p 4321:2345 -v /mnt/sdb1/xunlei:/xunlei/data -v /mnt/sdb1/downloads:/xunlei/downloads --restart=unless-stopped --privileged cnk3x/xunlei:latest
+docker run -d --name=xunlei --hostname=mynas --net=bridge -p 4321:2345 -v /mnt/sdb1/xunlei:/xunlei/data -v /mnt/sdb1/downloads:/xunlei/downloads --restart=unless-stopped --privileged wowaqly/xunlei:latest
 ```
 
 
