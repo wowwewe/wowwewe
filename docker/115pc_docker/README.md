@@ -1,5 +1,4 @@
 # 115网盘Linux版本的Docker封装
-[![Docker Automated build](https://img.shields.io/docker/automated/jlesage/baseimage-gui.svg)](https://hub.docker.com/r/funcman/115pc/)
 
 ## 目前有的问题
 
@@ -62,8 +61,3 @@ docker stop 115pc
 6. 由于默认使用了`root`用户，导致115客户端下载的文件的权限在其他用户面前为只读，所以尽量使用115客户端删除下载文件。
 7. **不支持**115客户端的在线升级，主要是因为升级过程中需要输入115所在主机系统的登录密码，但是输入设置的密码会提示密码不正确。
 
-
-## 感谢
-
-* [jlesage/baseimage-gui](https://hub.docker.com/r/jlesage/baseimage-gui)提供的X图形应用容器基础镜像，使用它可以轻松将Linux图形应用程序以Web和VNC的方式使用。
-* CALTyang制作的[115pc-docker](https://github.com/CALTyang/115pc-docker)，我这里fork了他的代码，并进一步折腾解决了一些小问题，收获很多。
