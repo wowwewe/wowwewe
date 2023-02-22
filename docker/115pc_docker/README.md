@@ -2,7 +2,6 @@
 [![Docker Automated build](https://img.shields.io/docker/automated/jlesage/baseimage-gui.svg)](https://hub.docker.com/r/funcman/115pc/)
 
 ## 目前有的问题
-有个bug是第一次启动时115创建的默认下载目录是不对的，需要在创建后重启一次让脚本运行，或者手动修改下载目录为/Downloads/115download 临时解决办法是 在第一次创建时使用 && sleep 60s && docker restart 115pc 。如果你的机器太老旧修改增加sleep时间。
 
 使用一段时间后，会出现无法继续使用的问题。解决方法就是把Web浏览器中的115pc相关的Cookie清除掉。操作方法比如：https://support.google.com/chrome/answer/95647
 
@@ -15,7 +14,7 @@ docker pull wowaqly/115pc:latest
 
 
 ## 创建容器
-有个bug是第一次启动时115创建的默认下载目录是不对的，需要在创建后重启一次让脚本运行，或者手动修改下载目录为/Downloads/115download 临时解决办法是 在第一次创建时使用 && sleep 60s && docker restart 115pc 。如果你的机器太老旧修改增加sleep时间。
+
 ```shell
 docker run -d   --name=115pc                                    \
                 -p 11580:5800                                   \
@@ -23,7 +22,7 @@ docker run -d   --name=115pc                                    \
                 -v <YourConfigDir>:/config                      \
                 -v <YourDownloadDir>:/Downloads/115download     \
                 --restart always                                \
-                wowaqly/115pc:latest && sleep 60s && docker restart 115pc
+                wowaqly/115pc:latest
 ```
 
 
