@@ -14,7 +14,7 @@ external-controller: 0.0.0.0:9090
 |`CLASH_REVE`       |版本号，默认：2023.02.16                                  |
 |`APT_SOURCE_HOST`  |Apt更新源地址，默认为华为云镜像：mirrors.huaweicloud.com   |
 
-*更多参数设置，请参考：<https://github.com/jlesage/docker-baseimage-gui>*
+*版本号，请参考：https://github.com/Dreamacro/clash/releases/tag/premium
 
 
 
