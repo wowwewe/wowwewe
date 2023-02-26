@@ -10,6 +10,7 @@ docker run -d --privileged \
 -e DAV_USER=admin \
 -e DAV_PWD=admin \
 -p 8080:8080 \
+--restart=unless-stopped
 wowaqly/cosfs_webdav
 ```
 ## 参数
