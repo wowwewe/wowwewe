@@ -1,7 +1,7 @@
 # 腾讯云COS存储桶-webdav
 
 ``` shell
-docker run -d --privileged \
+docker run -d --privileged --restart=unless-stopped \
 --name cosdav \
 -e BUCKETNAME_APPID=123 \
 -e SECRETID=123id \
@@ -10,7 +10,6 @@ docker run -d --privileged \
 -e DAV_USER=admin \
 -e DAV_PWD=admin \
 -p 8080:8080 \
---restart=unless-stopped
 wowaqly/cosfs_webdav
 ```
 ## 参数
