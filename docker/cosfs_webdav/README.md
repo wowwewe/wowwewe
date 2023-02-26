@@ -10,7 +10,7 @@ docker run -d --privileged \
 -e DAV_USER=admin \
 -e DAV_PWD=admin \
 -p 8080:8080 \
-wowaqly/cos_webdav
+wowaqly/cosfs_webdav
 ```
 ## 参数
 |名称               |说明                                                   |
