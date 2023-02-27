@@ -13,7 +13,7 @@ ENV DAV_USER=admin
 ENV DAV_PWD=admin
 
 RUN sed -i "s@http://.*archive.ubuntu.com@http://${APT_SOURCE_HOST}@g" /etc/apt/sources.list && sed -i "s@http://.*security.ubuntu.com@http://${APT_SOURCE_HOST}@g" /etc/apt/sources.list && apt-get update  && apt-get upgrade -y && apt-get install wget pip cron -y
-RUN pip install coscmd -i https://repo.huaweicloud.com/repository/pypi/simple --trusted-host repo.huaweicloud.com && coscmd config -a ${SECRETID} -s ${SECRETKEY}W -b ${BUCKETNAME_APPID} -r ${REGION}
+RUN pip install coscmd -i https://repo.huaweicloud.com/repository/pypi/simple --trusted-host repo.huaweicloud.com
 RUN mkdir /root/webdavserver && cd /root/webdavserver  && wget https://github.wewe.uk/hacdias/webdav/releases/download/v${WEBDAV_REV}/linux-amd64-webdav.tar.gz && tar -zxvf linux-amd64-webdav.tar.gz && rm -f /root/webdavserver/linux-amd64-webdav.tar.gz
 COPY install.sh /root/install.sh
 COPY start.sh /root/start.sh
