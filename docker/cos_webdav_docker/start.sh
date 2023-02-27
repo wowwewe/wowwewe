@@ -1,5 +1,5 @@
 #!/bin/bash
-service cron start && service cron reload && service cron restart
+
 rm -rf ~/.cos.conf && coscmd config -a ${SECRETID} -s ${SECRETKEY} -b ${BUCKETNAME_APPID} -r ${REGION}
 
 rm -rf /root/webdavserver/webdav_config.yaml
@@ -33,4 +33,5 @@ users:
 scope: /root/pwdbak
 modify: true
 EOF
+cron
 cd /root/webdavserver && ./webdav -c /root/webdavserver/webdav_config.yaml
