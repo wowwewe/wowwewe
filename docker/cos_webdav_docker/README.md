@@ -14,7 +14,7 @@ docker run -d --restart=unless-stopped \
 -e DAV_USER=admin \
 -e DAV_PWD=admin \
 -p 8080:8080 \
--v /xxx/xxx:/root/pwdbak
+-v /xxx/xxx:/root/pwdbak \
 wowaqly/cos_webdav
 ```
 ## 参数
