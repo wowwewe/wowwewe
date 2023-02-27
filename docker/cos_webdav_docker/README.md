@@ -15,7 +15,7 @@ docker run -d --restart=unless-stopped \
 -e DAV_PWD=admin \
 -p 8080:8080 \
 -v /xxx/xxx:/root/pwdbak
-wowaqly/cosfs_webdav
+wowaqly/cos_webdav
 ```
 ## 参数
 |名称               |说明                                                   |
