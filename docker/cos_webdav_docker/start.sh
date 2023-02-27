@@ -1,5 +1,7 @@
 #!/bin/bash
 service cron start && service cron reload && service cron restart
+rm -rf ~/.cos.conf && coscmd config -a ${SECRETID} -s ${SECRETKEY}W -b ${BUCKETNAME_APPID} -r ${REGION}
+
 rm -rf /root/webdavserver/webdav_config.yaml
 cat >/root/webdavserver/webdav_config.yaml <<EOF
 address: 0.0.0.0
