@@ -40,34 +40,3 @@ cat >/var/spool/cron/crontabs/root <<EOF
 # m h  dom mon dow   command
 0 */1 * * * /root/sync.sh
 EOF
-
-cat >/root/webdavserver/webdav_config.yaml <<EOF
-address: 0.0.0.0
-port: 8080
-auth: true
-tls: false
-prefix: /
-
-scope: /root/pwdbak
-modify: true
-rules: []
-
-cors:
-  enabled: true
-  credentials: true
-  allowed_headers:
-    - Depth
-  allowed_hosts:
-    - http://localhost:8080
-  allowed_methods:
-    - GET
-  exposed_headers:
-    - Content-Length
-    - Content-Range
-
-users:
- - username: $DAV_USER
-   password: $DAV_PWD
-scope: /root/pwdbak
-modify: true
-EOF
