@@ -13,7 +13,7 @@ then
 else
     echo "Path /root/pwdbak is Ready"
 fi
-
+chmod +x /root/sync.sh
 cat >/var/spool/cron/crontabs/root <<EOF
 # Edit this file to introduce tasks to be run by cron.
 #
