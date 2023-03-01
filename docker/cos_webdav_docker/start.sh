@@ -8,7 +8,7 @@ auth: true
 tls: false
 prefix: /
 
-scope: /root/pwdbak
+scope: /root/data
 modify: true
 rules: []
 
@@ -28,7 +28,7 @@ cors:
 users:
  - username: $DAV_USER
    password: $DAV_PWD
-scope: /root/pwdbak
+scope: /root/data
 modify: true
 EOF
 cron
