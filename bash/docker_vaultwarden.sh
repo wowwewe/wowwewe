@@ -180,6 +180,9 @@ docker run -d \
 --network=vaultwarden-network \
 --ip 192.88.88.11 \
 -e WEB_VAULT_ENABLED=false \
+-e DISABLE_ICON_DOWNLOAD=true \
+-e ICON_CACHE_TTL=0 \
+-e ICON_CACHE_NEGTTL=0 \
 vaultwarden/server:latest
    
  docker run -d \
