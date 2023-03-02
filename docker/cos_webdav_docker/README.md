@@ -1,6 +1,6 @@
 # 腾讯云COS-webdav
 
-因为之前使用COSFS实现挂载时发现COS的请求次数过多，每分钟上千次，所以现在改用本地存储数据，cron每20分钟COSCMD同步到COS一次
+因为之前使用COSFS实现挂载时发现COS的请求次数过多，每分钟上千次，所以现在改用本地存储数据，cron每10分钟COSCMD同步到COS一次
 
 使用 -v /xxx/xxx:/root/pwdbak 把数据储存在本地
 
