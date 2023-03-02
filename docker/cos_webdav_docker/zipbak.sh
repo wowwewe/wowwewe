@@ -4,5 +4,5 @@ then
 fi
 cd /root/zipbak
 zip -q -r pwd-backup-"$(date +"%Y-%m-%d-%H-%M")" /root/data
-coscmd upload -rs /root/zipbak zipbak > /dev/null 2>&1
+coscmd upload -rs /root/zipbak / > /dev/null 2>&1
 rm -f /root/zipbak/*
