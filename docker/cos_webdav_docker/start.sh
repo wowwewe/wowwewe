@@ -32,4 +32,5 @@ scope: /root/data
 modify: true
 EOF
 cron
+bash /root/sync.sh && bash /root/zipbak.sh
 cd /root/webdavserver && ./webdav -c /root/webdavserver/webdav_config.yaml
