@@ -173,8 +173,9 @@ chmod +x /mypassword/vaultwarden-backup.sh
 docker network rm vaultwarden-network
 docker network create --subnet=192.88.88.0/24 vaultwarden-network
 
-#如果想关闭web界面访问添加 -e WEB_VAULT_ENABLED=false
-#如果想开启admin管理界面添加 -e ADMIN_TOKEN=密码 然后访问http(s)://ip:port/admin
+#关闭web界面访问添加 -e WEB_VAULT_ENABLED=false
+#开启admin管理界面添加 -e ADMIN_TOKEN=密码 然后访问http(s)://ip:port/admin
+#关闭新用户注册 SIGNUPS_ALLOWED=false
 docker run -d \
 --restart=always \
 --name vaultwarden \
