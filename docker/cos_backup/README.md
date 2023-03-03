@@ -1,8 +1,6 @@
-# 腾讯云COS-webdav
-
-因为之前使用COSFS实现挂载时发现COS的请求次数过多，每分钟上千次，所以现在改用本地存储数据，cron每10分钟COSCMD同步到COS一次
-
-使用 -v /xxx/xxx:/root/pwdbak 把数据储存在本地
+# 腾讯云cos-backup
+把文件夹加密ZIP后上传到cos。
+默认每天备份一次，重启容器立即备份一次，长期使用会在cos中累计存储很多数据，记得定时手动清理cos
 
 ``` shell
 docker run -d --restart=unless-stopped \
@@ -10,10 +8,9 @@ docker run -d --restart=unless-stopped \
 -e BUCKETNAME_APPID=123 \
 -e SECRETID=123id \
 -e SECRETKEY=123key \
+-e PASSWORD=123 \
+-e PASSWORD_PROMPT=123 \
 -e REGION=ap-nanjing \
--e DAV_USER=admin \
--e DAV_PWD=admin \
--p 8080:8080 \
 -v /xxx/xxx:/root/data \
 wowaqly/cos_webdav
 ```
@@ -24,22 +21,8 @@ wowaqly/cos_webdav
 |SECRETID | 腾讯云账号密钥ID 建议使用子账号 最小权限|
 |SECRETKEY | 腾讯云账号密钥KEY 建议使用子账号 最小权限|
 |REGION |地域简称 默认ap-nanjing|
-|DAV_USER |webdav的登录名 默认admin|
-|DAV_PWD |webdav的登录密码  默认admin|
+|PASSWORD |zip加密密码|
+|PASSWORD_PROMPT |密码提示|
 
 *参数设置，请参考：<https://cloud.tencent.com/document/product/436/10976>*
 
-## Nginx反代webdav
-```shell
-location / {
-        proxy_pass http://127.0.0.1:8080;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header REMOTE-HOST $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $http_host;
-        proxy_redirect off;
-    }
- ```
-## 感谢
-
-[hacdias/webdav](https://github.com/hacdias/webdav)
