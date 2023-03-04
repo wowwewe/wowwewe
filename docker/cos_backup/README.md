@@ -4,14 +4,14 @@
 
 ``` shell
 docker run -d --restart=unless-stopped \
---name cosdav \
+--name cosbak \
 -e BUCKETNAME_APPID=123 \
 -e SECRETID=123id \
 -e SECRETKEY=123key \
 -e REGION=ap-nanjing \
 -e COS_PATH=/ \
 -v /xxx/xxx:/root/data \
-wowaqly/cos_webdav
+wowaqly/cos_backup
 ```
 ## 参数
 |名称               |说明                                                   |
