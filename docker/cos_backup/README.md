@@ -8,8 +8,6 @@ docker run -d --restart=unless-stopped \
 -e BUCKETNAME_APPID=123 \
 -e SECRETID=123id \
 -e SECRETKEY=123key \
--e PASSWORD=123 \
--e PASSWORD_PROMPT=123 \
 -e REGION=ap-nanjing \
 -e COS_PATH=/ \
 -v /xxx/xxx:/root/data \
