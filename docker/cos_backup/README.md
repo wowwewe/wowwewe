@@ -11,7 +11,7 @@ docker run -d --restart=unless-stopped \
 -e PASSWORD=123 \
 -e PASSWORD_PROMPT=123 \
 -e REGION=ap-nanjing \
--e COS_PATH="\" \
+-e COS_PATH=/ \
 -v /xxx/xxx:/root/data \
 wowaqly/cos_webdav
 ```
@@ -22,7 +22,7 @@ wowaqly/cos_webdav
 |SECRETID | 腾讯云账号密钥ID 建议使用子账号 最小权限|
 |SECRETKEY | 腾讯云账号密钥KEY 建议使用子账号 最小权限|
 |REGION |地域简称 默认ap-nanjing|
-|COS_PATH|同步到cos储存桶中的路径 默认 \|
+|COS_PATH|同步到cos储存桶中的路径 默认 /|
 
 *参数设置，请参考：<https://cloud.tencent.com/document/product/436/10976>*
 
