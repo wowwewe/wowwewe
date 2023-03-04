@@ -200,9 +200,10 @@ vaultwarden/server:latest
     
 green "=============================="
 green "         安装已经完成"
-blue "请自行修改crontab以自动备份，操作如下"
+blue "请自行修改crontab以自动备份，每天3点备份，默认删除15天前的备份 "
+blue "操作如下"
 blue "crontab -e               如果让选择编辑器选择vim"
-blue "在最后一行加入   0 */12 * * * /mypassword/vaultwarden-backup.sh    "
+blue "在最后一行加入   0 03 * * * /mypassword/vaultwarden-backup.sh    "
 blue " service cron reload && service cron restart "
 green "=============================="
 }
