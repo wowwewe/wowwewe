@@ -1,6 +1,6 @@
 # 腾讯云cos-backup
-把文件夹加密ZIP后上传到cos。
-默认每天备份一次，重启容器立即备份一次，长期使用会在cos中累计存储很多数据，记得定时手动清理cos
+每十分钟增量同步一次文件夹中的文件到cos
+⚠️注意，因为cos的特性，不会同步文件夹中的二级文件夹及其中的文件。
 
 ``` shell
 docker run -d --restart=unless-stopped \
@@ -11,6 +11,7 @@ docker run -d --restart=unless-stopped \
 -e PASSWORD=123 \
 -e PASSWORD_PROMPT=123 \
 -e REGION=ap-nanjing \
+-e COS_PATH="\" \
 -v /xxx/xxx:/root/data \
 wowaqly/cos_webdav
 ```
@@ -21,8 +22,7 @@ wowaqly/cos_webdav
 |SECRETID | 腾讯云账号密钥ID 建议使用子账号 最小权限|
 |SECRETKEY | 腾讯云账号密钥KEY 建议使用子账号 最小权限|
 |REGION |地域简称 默认ap-nanjing|
-|PASSWORD |zip加密密码|
-|PASSWORD_PROMPT |密码提示|
+|COS_PATH|同步到cos储存桶中的路径 默认 \|
 
 *参数设置，请参考：<https://cloud.tencent.com/document/product/436/10976>*
 
