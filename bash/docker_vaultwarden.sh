@@ -165,7 +165,8 @@ EOF
 cat > /mypassword/vaultwarden-backup.sh<<-EOF
 #!/bin/bash
 cd $backupway
-zip -q -r -P $backup_password vaultwarden_backup_"\$(date +"%Y_%m_%d_%H_%M")"_"$backup_password_prompt".zip /mypassword/vaultwarden
+rm -f vaultwarden_backup_"$(date -d -15day +"%Y-%m-%d")"_"$backup_password_prompt".zip
+zip -q -r -P $backup_password vaultwarden_backup_"$(date +"%Y_%m_%d")"_"$backup_password_prompt".zip /mypassword/vaultwarden
 EOF
 
 chmod +x /mypassword/vaultwarden-backup.sh
