@@ -8,7 +8,7 @@ ENV BUCKETNAME_APPID=123
 ENV SECRETID=123
 ENV SECRETKEY=123
 ENV REGION=ap-nanjing
-
+ENV COS_PATH=/
 
 COPY start.sh /root/start.sh
 RUN sed -i "s@http://.*archive.ubuntu.com@http://${APT_SOURCE_HOST}@g" /etc/apt/sources.list && sed -i "s@http://.*security.ubuntu.com@http://${APT_SOURCE_HOST}@g" /etc/apt/sources.list && apt-get update  && apt-get upgrade -y && apt-get install pip cron zip -y
