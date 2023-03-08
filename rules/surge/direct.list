@@ -31,3 +31,5 @@ DOMAIN-SUFFIX,unidays.world
 DOMAIN-SUFFIX,myunidays.world
 DOMAIN-SUFFIX,plex.tv
 DOMAIN-SUFFIX,bitwarden.com
+#hotmail邮箱
+DOMAIN,m.hotmail.com
