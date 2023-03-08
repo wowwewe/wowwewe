@@ -1,33 +1,33 @@
-DOMAIN-SUFFIX, hotmail.com
-DOMAIN-SUFFIX, microsoft.com
-DOMAIN-SUFFIX, microsoft-falcon.io
-DOMAIN-SUFFIX, microsoftapp.com
-DOMAIN-SUFFIX, windows.com
-DOMAIN-SUFFIX, live.com
-DOMAIN-SUFFIX, skype.com
-DOMAIN-SUFFIX, outlook.com
-DOMAIN-SUFFIX, bing.com
-DOMAIN-SUFFIX, office.com
-DOMAIN-SUFFIX, onedrive.com
-DOMAIN-SUFFIX, xbox.com
-DOMAIN-SUFFIX, msn.com
-DOMAIN-SUFFIX, aka.ms
-DOMAIN-SUFFIX, visualstudio.com
-DOMAIN-SUFFIX, msdn.com
-DOMAIN-SUFFIX, azure.com
-DOMAIN-SUFFIX, linkedin.com
-DOMAIN-SUFFIX, yammer.com
-DOMAIN-SUFFIX, windowsupdate.com
-DOMAIN-SUFFIX, microsoftonline.com
-DOMAIN-SUFFIX, office365.com
-DOMAIN-SUFFIX, windows.net
-DOMAIN-SUFFIX, windowsphone.com
-DOMAIN-SUFFIX, xboxlive.com
-DOMAIN-SUFFIX, skype.net
-DOMAIN-SUFFIX, s-microsoft.com
-DOMAIN-SUFFIX, surface.com
-DOMAIN-SUFFIX, xboxapi.com
-DOMAIN-SUFFIX, xboxliveapi.com
+DOMAIN-SUFFIX,hotmail.com
+DOMAIN-SUFFIX,microsoft.com
+DOMAIN-SUFFIX,microsoft-falcon.io
+DOMAIN-SUFFIX,microsoftapp.com
+DOMAIN-SUFFIX,windows.com
+DOMAIN-SUFFIX,live.com
+DOMAIN-SUFFIX,skype.com
+DOMAIN-SUFFIX,outlook.com
+DOMAIN-SUFFIX,bing.com
+DOMAIN-SUFFIX,office.com
+DOMAIN-SUFFIX,onedrive.com
+DOMAIN-SUFFIX,xbox.com
+DOMAIN-SUFFIX,msn.com
+DOMAIN-SUFFIX,aka.ms
+DOMAIN-SUFFIX,visualstudio.com
+DOMAIN-SUFFIX,msdn.com
+DOMAIN-SUFFIX,azure.com
+DOMAIN-SUFFIX,linkedin.com
+DOMAIN-SUFFIX,yammer.com
+DOMAIN-SUFFIX,windowsupdate.com
+DOMAIN-SUFFIX,microsoftonline.com
+DOMAIN-SUFFIX,office365.com
+DOMAIN-SUFFIX,windows.net
+DOMAIN-SUFFIX,windowsphone.com
+DOMAIN-SUFFIX,xboxlive.com
+DOMAIN-SUFFIX,skype.net
+DOMAIN-SUFFIX,s-microsoft.com
+DOMAIN-SUFFIX,surface.com
+DOMAIN-SUFFIX,xboxapi.com
+DOMAIN-SUFFIX,xboxliveapi.com
 DOMAIN,oneclient.sfx.ms
 DOMAIN-SUFFIX,1drv.com
 DOMAIN-SUFFIX,onenote.com
