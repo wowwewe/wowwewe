@@ -1,7 +1,7 @@
 #!name=IOSNewBing无代理访问
 #!system=ios
 [Script]
-newbing_ios = type=http-request,pattern=^http(s?)://(.*).bing\.com/(.*),requires-body=1,max-size=0,script-path=https://cdn.jsdelivr.net/gh/wowaqly/Dynaxvvv@main/rules/surge/js/newbing_ios.js
+newbing_ios = type=http-request,pattern=^http(s?)://(.*).bing\.com/(.*),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/wowaqly/Dynaxvvv/main/rules/surge/js/newbing_ios.js
 [MITM]
 hostname = www.bing.com
 
