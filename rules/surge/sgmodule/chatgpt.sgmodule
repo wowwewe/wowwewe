@@ -3,4 +3,4 @@
 [Script]
 newbing_ios = type=http-request,pattern=^http(s?)://(.*).openai\.com/(.*),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/wowaqly/Dynaxvvv/main/rules/surge/js/chatgpt.js
 [MITM]
-hostname = www.bing.com
+hostname = chat.openai.com
