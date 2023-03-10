@@ -6,5 +6,5 @@ newbing_ios = type=http-request,pattern=^http(s?)://(.*).bing\.com/(.*),requires
 ^https:\/\/assets\.msn\.com\/service\/news\/ - reject
 ^https:\/\/www\.bing\.com\/api\/v7\/news\/ - reject
 [MITM]
-hostname = %APPEND% www.bing.com,assets.msn.com
+hostname = %APPEND% www.bing.com, assets.msn.com
 
