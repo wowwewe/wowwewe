@@ -192,7 +192,6 @@ cat > /trojan-go/trojan-go/config.json <<EOF
         "path": "$trojan_ws",
         "host": "$your_domain"
     },
-    #要设置前置代理请把下面的"enabled": false,改为true，proxy_addr=socks5代理地址，proxy_port=socks5代理端口，如果没有密码username password留空即可
     "forward_proxy": {
     "enabled": false,
     "proxy_addr": "",
@@ -257,6 +256,7 @@ green " 安装已经完成,请自行输入以下指令，添加自动更新ssl�
 blue "crontab -e               如果让选择编辑器选择vim"
 blue "在最后一行加入   0 12 1 * * /trojan-go/update.sh    "
 blue " service cron reload && service cron restart "
+blue "要设置前置代理把配置文件"forward_proxy":段的"enabled": false,改为true，proxy_addr=socks5代理地址，proxy_port=socks5代理端口，如果没有密码username password留空即可"
 green "===========配置参数============"
 green "地址：${your_domain}"
 green "端口：$proxyport"
