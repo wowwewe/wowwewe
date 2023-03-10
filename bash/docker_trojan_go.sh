@@ -191,7 +191,15 @@ cat > /trojan-go/trojan-go/config.json <<EOF
         "enabled": true,
         "path": "$trojan_ws",
         "host": "$your_domain"
-    }
+    }，
+    #要设置前置代理请把下面的"enabled": false,改为true，proxy_addr=socks5代理地址，proxy_port=socks5代理端口，如果没有密码username password留空即可
+    "forward_proxy": {
+    "enabled": false,
+    "proxy_addr": "",
+    "proxy_port": 0,
+    "username": "",
+    "password": ""
+  },
 }
 EOF
 chmod +x /trojan-go/update.sh
