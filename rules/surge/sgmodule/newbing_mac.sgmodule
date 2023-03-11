@@ -3,5 +3,5 @@
 [Script]
 newbing_mac = type=http-request,pattern=^http(s?)://(.*).bing\.com/(.*),requires-body=0,max-size=0,debug=0,script-path=https://raw.githubusercontent.com/wowaqly/Dynaxvvv/main/rules/surge/js/newbing_mac.js
 [MITM]
-hostname = %APPEND% www.bing.com
+hostname = %APPEND% www.bing.com, sydney.bing.com
 
