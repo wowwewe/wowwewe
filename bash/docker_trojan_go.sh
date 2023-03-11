@@ -11,29 +11,6 @@ function red(){
 function yellow(){
     echo -e "\033[33m\033[01m$1\033[0m"
 }
-function bbr(){
-if [ "$(lsb_release -r | awk '{print $2}')" \< "18.04" ]; then
-    echo "This script is designed for Ubuntu 18.04 or later versions."
-    exit 1
-fi
-
-
-# 检查是否已经开启了bbr
-if grep -q "net.core.default_qdisc=fq" /etc/sysctl.conf && grep -q "net.ipv4.tcp_congestion_control=bbr" /etc/sysctl.conf; then
-    echo "BBR is already enabled."
-    check_os
-fi
-
-# 开启BBR
-echo "net.core.default_qdisc=fq" | sudo tee -a /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control=bbr" | sudo tee -a /etc/sysctl.conf
-sudo sysctl -p
-echo "BBR has been enabled."
-# 加载tcp_bbr模块
-modprobe tcp_bbr
-# 将tcp_bbr添加到/etc/modules-load.d/modules.conf文件中
-echo "tcp_bbr" | sudo tee -a /etc/modules-load.d/modules.conf
-}
 function check_os(){
 green "系统支持检测"
 sleep 3s
@@ -287,7 +264,6 @@ green "ws路径：${trojan_ws}"
 green 
  }
 rm_trojian
-bbr
 check_os 
 check_env
 start_install
