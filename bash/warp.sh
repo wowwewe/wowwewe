@@ -1139,5 +1139,6 @@ ${Menu_Title}
         ;;
     esac
 }
+Get_System_Info
 Start_Menu
 
