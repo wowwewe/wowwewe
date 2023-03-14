@@ -1,0 +1,7 @@
+#!name=在safari中访问new bing
+[Header Rewrite]
+# 在safari中访问new bing，如果失效自行替换正规表达式匹配的域名
+^https:\/\/www\.bing\.com\/search\?q=Bing\+AI.*$ header-replace-regex User-Agent \w+\/[\d\.]+$ "AppleWebKit/537.36 Chrome/112.0 Safari/537.36 Edg/112.0"
+[MITM]
+hostname = %APPEND% www.bing.com
+
