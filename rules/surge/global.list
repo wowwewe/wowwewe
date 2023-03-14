@@ -28,4 +28,10 @@ DOMAIN-SUFFIX,ctsnton.xyz
 DOMAIN-SUFFIX,kccdk.com
 DOMAIN-SUFFIX,improd.works
 DOMAIN-SUFFIX,okx-dv.net
-
+################################################
+# chatgpt
+DOMAIN-SUFFIX,openai.com
+# new bing，如果失效自行替换正规表达式匹配的域名
+URL-REGEX,^https:\/\/www\.bing\.com\/search\?q=Bing\+AI.*$
+DOMAIN,sydney.bing.com
+################################################
