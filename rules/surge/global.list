@@ -32,6 +32,7 @@ DOMAIN-SUFFIX,okx-dv.net
 # chatgpt
 DOMAIN-SUFFIX,openai.com
 # new bing，如果失效自行替换正规表达式匹配的域名
+URL-REGEX,^https://www\.bing\.com/turing/conversation/create
 URL-REGEX,^https:\/\/www\.bing\.com\/search.*Bing\+AI.*
 URL-REGEX,^https:\/\/www\.bing\.com\/new.*Bing\+AI.*
 DOMAIN,sydney.bing.com
