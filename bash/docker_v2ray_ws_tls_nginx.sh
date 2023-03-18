@@ -263,7 +263,7 @@ docker run -d \
   -p 127.0.0.1:28901:28901 \
   -p 127.0.0.1:28901:28901/udp \
   -v /v2ray/v2ray/config.json:/etc/v2ray/config.json \
-  v2fly/v2fly-core
+  v2fly/v2fly-core run -c /etc/v2ray/config.json
   
 #plex 端口32400
 docker run \
