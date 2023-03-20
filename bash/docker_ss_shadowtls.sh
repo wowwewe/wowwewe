@@ -111,9 +111,10 @@ sudo docker run -e PASSWORD=$shadowsocks_password \
             -e TLS=$shadowtls_web \
             -e PASSWORD=$shadowtls_password \
 	    -e STRICT=1 \
+	    -e RUST_LOG=error \
             --network host \
             --name shadow-tls \
-             --restart=always \
+            --restart=always \
             -d ghcr.io/ihciah/shadow-tls:latest
 ######################################
     green "======================="
