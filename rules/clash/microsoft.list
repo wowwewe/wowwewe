@@ -10,6 +10,7 @@ payload:
   - DOMAIN-SUFFIX,outlook.com
   - DOMAIN-SUFFIX,bing.com
   - DOMAIN-SUFFIX,office.com
+  - DOMAIN-SUFFIX,office.net
   - DOMAIN-SUFFIX,onedrive.com
   - DOMAIN-SUFFIX,xbox.com
   - DOMAIN-SUFFIX,msn.com
@@ -31,7 +32,7 @@ payload:
   - DOMAIN-SUFFIX,surface.com
   - DOMAIN-SUFFIX,xboxapi.com
   - DOMAIN-SUFFIX,xboxliveapi.com
-  - DOMAIN-SUFFIX,DOMAIN,oneclient.sfx.ms
+  - DOMAIN-SUFFIX,oneclient.sfx.ms
   - DOMAIN-SUFFIX,1drv.com
   - DOMAIN-SUFFIX,onenote.com
   - DOMAIN-SUFFIX,onenote.net
