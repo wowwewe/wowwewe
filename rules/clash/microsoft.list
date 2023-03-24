@@ -13,6 +13,7 @@ payload:
   - DOMAIN-SUFFIX,onedrive.com
   - DOMAIN-SUFFIX,xbox.com
   - DOMAIN-SUFFIX,msn.com
+  - DOMAIN-SUFFIX,msn.cn
   - DOMAIN-SUFFIX,aka.ms
   - DOMAIN-SUFFIX,visualstudio.com
   - DOMAIN-SUFFIX,msdn.com
