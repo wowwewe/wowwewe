@@ -7,7 +7,7 @@ HOST-SUFFIX,apple.news,reject
 HOST,fastgw.ys7.com,reject
 HOST,ys-video.aipai.com,reject
 HOST,img.ys7.com,reject
-HOST,mfs,ys7.com,reject
+HOST,mfs.ys7.com,reject
 ################
 HOST-SUFFIX,shenyin.name,reject
 HOST,api.shenyin.name,reject
