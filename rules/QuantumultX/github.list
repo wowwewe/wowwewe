@@ -1,0 +1,7 @@
+HOST-SUFFIX,github.com
+HOST-SUFFIX,github.io
+HOST-SUFFIX,githubusercontent.com
+HOST-SUFFIX,githubassets.com
+HOST-SUFFIX,githubapp.com
+#github上传文件可能会用到amazonaws的服务器
+HOST-SUFFIX,amazonaws.com
