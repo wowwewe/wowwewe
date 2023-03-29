@@ -30,4 +30,4 @@ payload:
 # chatgpt
   - DOMAIN-SUFFIX,openai.com
 # new bing
-  - DOMAIN-SUFFIX,bing.com
+  - DOMAIN,www.bing.com
