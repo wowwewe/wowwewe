@@ -29,6 +29,7 @@ HOST-SUFFIX,improd.works,proxy
 HOST-SUFFIX,okx-dv.net,proxy
 HOST-SUFFIX,ihezu.cc,proxy
 HOST-SUFFIX,ihezu.cn,proxy
+HOST-SUFFIX,ihezu.com.cn,proxy
 ################################################
 # chatgpt
 HOST-SUFFIX,openai.com,proxy
