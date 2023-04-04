@@ -31,5 +31,5 @@ HOST-SUFFIX,okx-dv.net,proxy
 # chatgpt
 HOST-SUFFIX,openai.com,proxy
 # new bing
-HOST-SUFFIX,bing.com,proxy
+HOST,www.bing.com,proxy
 ################################################
