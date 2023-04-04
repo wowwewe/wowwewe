@@ -32,4 +32,5 @@ HOST-SUFFIX,okx-dv.net,proxy
 HOST-SUFFIX,openai.com,proxy
 # new bing
 HOST,www.bing.com,proxy
+HOST,sydney.bing.com,proxy
 ################################################
