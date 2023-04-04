@@ -2,7 +2,6 @@
 ##自添规则
 HOST-SUFFIX,xdrig.com,reject
 HOST-SUFFIX,access-sngapm.qcloud.com,reject
-HOST-SUFFIX,apple.news,reject
 ####萤石视频####
 HOST,fastgw.ys7.com,reject
 HOST,ys-video.aipai.com,reject
