@@ -27,6 +27,7 @@ HOST-SUFFIX,ctsnton.xyz,proxy
 HOST-SUFFIX,kccdk.com,proxy
 HOST-SUFFIX,improd.works,proxy
 HOST-SUFFIX,okx-dv.net,proxy
+HOST-SUFFIX,ihezu.cc,proxy
 ################################################
 # chatgpt
 HOST-SUFFIX,openai.com,proxy
