@@ -13,7 +13,6 @@ HOST-SUFFIX,arkdy.com,proxy
 HOST-SUFFIX,ark.to,proxy
 HOST-SUFFIX,justmysocks.net,proxy
 ####解决谷歌API因dns解析到国外导致很多网站加载不了#####
-HOST,ocsp.pki.goog,proxy
 HOST-SUFFIX,googleapis.com,proxy
 HOST-SUFFIX,gstatic.com,proxy
 ################################################
