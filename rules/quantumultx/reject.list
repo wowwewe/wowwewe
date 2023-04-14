@@ -12,7 +12,6 @@ HOST-SUFFIX,shenyin.name,reject
 HOST,api.shenyin.name,reject
 HOST-SUFFIX,archive-digger.com,reject
 ####t66y####
-HOST-SUFFIX,a.d,reject
 HOST-SUFFIX,nadcd.site,reject
 HOST-SUFFIX,ccimg.xyz,reject
 HOST-SUFFIX,bbs.hotavxxx.com,reject
