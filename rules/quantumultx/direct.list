@@ -33,3 +33,4 @@ HOST-SUFFIX,bitwarden.com,direct
 #hotmail和outlook邮箱
 HOST,m.hotmail.com,direct
 HOST,outlook.office365.com,direct
+HOST,www.bt-tt.com
