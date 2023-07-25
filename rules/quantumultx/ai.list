@@ -2,13 +2,8 @@
 # chatgpt
 HOST-SUFFIX,openai.com,proxy
 # new bing
-HOST,www.bing.com,proxy
-HOST,sydney.bing.com,proxy
-HOST,th.bing.com,proxy
-HOST,c.msn.com,proxy
-HOST-SUFFIX,events.data.microsoft.com,proxy
-HOST-SUFFIX,bingviz.microsoftapp.net,proxy
-HOST-SUFFIX,rewardsplatform.microsoft.com,proxy
-HOST,srtb.msn.com,proxy
-HOST,superapp.msn.com,proxy
+HOST-SUFFIX,bing.com,proxy
+#HOST,www.bing.com,proxy
+#HOST,sydney.bing.com,proxy
+
 ################################################
