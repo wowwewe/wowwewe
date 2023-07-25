@@ -4,7 +4,7 @@ HOST-SUFFIX,openai.com,proxy
 # new bing
 HOST,www.bing.com,proxy
 HOST,sydney.bing.com,proxy
-HOST-SUFFIX,events.data.microsoft.com
-HOST-SUFFIX,bingviz.microsoftapp.net
-HOST-SUFFIX,rewardsplatform.microsoft.com
+HOST-SUFFIX,events.data.microsoft.com,proxy
+HOST-SUFFIX,bingviz.microsoftapp.net,proxy
+HOST-SUFFIX,rewardsplatform.microsoft.com,proxy
 ################################################
