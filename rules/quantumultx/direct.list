@@ -30,6 +30,7 @@ HOST-SUFFIX,unidays.world,direct
 HOST-SUFFIX,myunidays.world,direct
 HOST-SUFFIX,plex.tv,direct
 HOST-SUFFIX,bitwarden.com,direct
+HOST-SUFFIX,cloudflare.com,direct
 #hotmail和outlook邮箱
 HOST,m.hotmail.com,direct
 HOST,outlook.office365.com,direct
