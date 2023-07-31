@@ -2,7 +2,7 @@
 # chatgpt
 HOST-SUFFIX,openai.com,proxy
 # new bing
-HOST,www.bing.com,proxy
+HOST-SUFFIX,bing.com,proxy
 HOST,www.bingapis.com,proxy
 HOST,sydney.bing.com,proxy
 
