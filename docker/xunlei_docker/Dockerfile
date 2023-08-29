@@ -1,11 +1,11 @@
-FROM golang as builder
+FROM golang:1.20.5 as builder
 
 ARG TARGETARCH
 ENV DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
 RUN if [ "${TARGETARCH}" != "arm64" -a "${TARGETARCH}" != "amd64" ]; then echo "arch ${TARGETARCH} is not supported"; exit 1; fi
 
-RUN sed -i 's/deb.debian.org/mirrors.bfsu.edu.cn/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/mirrors.bfsu.edu.cn/g' /etc/apt/sources.list
+#RUN sed -i 's/deb.debian.org/mirrors.bfsu.edu.cn/g' /etc/apt/sources.list && \
+#    sed -i 's/security.debian.org/mirrors.bfsu.edu.cn/g' /etc/apt/sources.list
 RUN apt-get update && apt-get -y --no-install-recommends install ca-certificates xz-utils tzdata
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone
 
@@ -24,13 +24,13 @@ RUN GOPROXY=https://goproxy.cn,direct CGO_ENABLED=0 \
 
 RUN cp --parents -r /var/packages/pan-xunlei-com/target /rootfs
 
-FROM ubuntu:focal
+FROM ubuntu
 LABEL maintainer="A<2023@wewe.uk>"
 
 ENV LANG=C.UTF-8 DEBIAN_FRONTEND=noninteractive LANG=zh_CN.UTF-8 LANGUAGE=zh_CN.UTF-8 LC_ALL=C
 
-RUN sed -i 's/deb.debian.org/mirrors.bfsu.edu.cn/g' /etc/apt/sources.list \ 
-    && apt-get update && apt-get -y --no-install-recommends install tzdata locales xfonts-wqy wget ca-certificates && rm -rf /var/lib/apt/lists/*
+#RUN sed -i 's/deb.debian.org/mirrors.bfsu.edu.cn/g' /etc/apt/sources.list \ 
+RUN apt-get update && apt-get -y --no-install-recommends install tzdata locales xfonts-wqy wget ca-certificates && rm -rf /var/lib/apt/lists/*
 
 # 设置中文环境
 RUN localedef -i zh_CN -c -f UTF-8 -A /usr/share/locale/locale.alias zh_CN.UTF-8 && locale-gen zh_CN.UTF-8 && \
