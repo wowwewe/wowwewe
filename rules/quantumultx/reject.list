@@ -12,3 +12,8 @@ HOST-SUFFIX,shenyin.name,reject
 HOST,api.shenyin.name,reject
 HOST-SUFFIX,archive-digger.com,reject
 ################
+#######百度######
+HOST,boxer.baidu.com,reject
+HOST,wakeup.baidu.com,reject
+HOST,mbd.baidu.com,reject
+################
