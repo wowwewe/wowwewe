@@ -17,3 +17,4 @@ HOST,boxer.baidu.com,reject
 HOST,wakeup.baidu.com,reject
 HOST,mbd.baidu.com,reject
 ################
+HOST,alexdenk.net,reject
