@@ -1,4 +1,3 @@
-# Surge for MAC China
 #自添规则
 DOMAIN-SUFFIX,qq.com
 DOMAIN-SUFFIX,bilivideo.com
@@ -31,6 +30,22 @@ DOMAIN-SUFFIX,unidays.world
 DOMAIN-SUFFIX,myunidays.world
 DOMAIN-SUFFIX,plex.tv
 DOMAIN-SUFFIX,bitwarden.com
+DOMAIN-SUFFIX,cloudflare.com
 #hotmail和outlook邮箱
 DOMAIN,m.hotmail.com
 DOMAIN,outlook.office365.com
+DOMAIN,www.bt-tt.com
+DOMAIN-SUFFIX,tesla.cn
+DOMAIN-SUFFIX,software.charliemonroe.net
+DOMAIN-SUFFIX,www.downiestatistics.com
+DOMAIN-SUFFIX,v3.paddleapi.com
+DOMAIN-SUFFIX,iptva.top
+DOMAIN-SUFFIX,enpass.io
+DOMAIN-SUFFIX,cloud.bang-olufsen.com
+DOMAIN-SUFFIX,trakt.tv
+DOMAIN-SUFFIX,1blocker.com
+DOMAIN-SUFFIX,adtidy.org
+DOMAIN-SUFFIX,anti-ad.net
+DOMAIN-SUFFIX,updf.com
+DOMAIN-SUFFIX,mixpanel.com
+DOMAIN-SUFFIX,revenuecat.com
