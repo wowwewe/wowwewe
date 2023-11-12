@@ -17,4 +17,9 @@ DOMAIN-SUFFIX,a.d
 DOMAIN-SUFFIX,nadcd.site
 DOMAIN-SUFFIX,ccimg.xyz
 DOMAIN-SUFFIX,bbs.hotavxxx.com
+#######百度######
+DOMAIN,boxer.baidu.com
+DOMAIN,wakeup.baidu.com
+DOMAIN,mbd.baidu.com
 ################
+DOMAIN,alexdenk.net
