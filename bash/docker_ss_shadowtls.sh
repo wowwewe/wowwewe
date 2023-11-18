@@ -112,6 +112,7 @@ sudo docker run -e PASSWORD=$shadowsocks_password \
             -e PASSWORD=$shadowtls_password \
 	    -e STRICT=1 \
 	    -e RUST_LOG=error \
+            -e v3=1 \
             --network host \
             --name shadow-tls \
             --restart=always \
