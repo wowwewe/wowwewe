@@ -66,28 +66,13 @@ function install_shadowsocks(){
 ######################################
 ######################################
     green "======================="
-    blue "请输入ss的密码"
+    blue "请输入snell的密码"
     green "======================="
-    read shadowsocks_password
+    read snell_password
 ######################################
-######################################
-    green "======================="
-    blue "请输入用于ss的dns服务器"
-    green "======================="
-    read shadowsocks_dns
-######################################
-######################################
-    green "======================="
-    blue "请输入用于连接的加密方式"
-    blue "一般情况用以下4个加密方式"
-	blue "'aes-128-gcm' 'aes-256-gcm'"
-	blue "'chacha20-ietf-poly1305' 'xchacha20-ietf-poly1305'"
-    green "======================="
-    read shadowsocks_method
-######################################
-    docker stop ss-server
+    docker stop sn-v4
     docker stop shadow-tls
-    docker rm ss-server
+    docker rm sn-v4
     docker rm shadow-tls
     docker network rm proxynetwork
     docker network rm v2raynetwork
@@ -95,31 +80,23 @@ function install_shadowsocks(){
     docker network create --subnet=192.1.1.0/24 proxynetwork
     ufw allow $shadowtls_port
     ufw allow $shadowtls_port/udp
-sudo docker run -e PASSWORD=$shadowsocks_password \
-             -e SERVER_ADDRS=::0 \
-             -e DNS_ADDRS=$shadowsocks_dns \
-             -e METHOD=$shadowsocks_method \
-             --network=proxynetwork \
-             --ip 192.1.1.195 \
-             --name ss-server \
-             --restart=always \
-             -d shadowsocks/shadowsocks-libev
+ sudo docker run -d -e PSK=$snell_password --name=sn-v4 --restart=always --network=proxynetwork --ip 192.1.1.188  wowaqly/sn_v4
  sudo docker run  \
             -e MODE=server \
             -e LISTEN=0.0.0.0:$shadowtls_port  \
-            -e SERVER=192.1.1.195:8388 \
+            -e SERVER=192.1.1.188:8388 \
             -e TLS=$shadowtls_web \
             -e PASSWORD=$shadowtls_password \
 	    -e STRICT=1 \
 	    -e RUST_LOG=error \
-            -e v3=1 \
+            -e V3=1 \
             --network host \
             --name shadow-tls \
             --restart=always \
             -d ghcr.io/ihciah/shadow-tls:latest
 ######################################
     green "======================="
-    blue  "ss-shadow-tls搭建完成"
+    blue  "snell-shadow-tls搭建完成"
     green "======================="
 }
 
