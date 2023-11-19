@@ -5,8 +5,7 @@ DOMAIN-SUFFIX,openai.com
 #URL-REGEX,^https://www\.bing\.com/turing/conversation/create
 #URL-REGEX,^https:\/\/www\.bing\.com\/search.*Bing\+AI.*
 #URL-REGEX,^https:\/\/www\.bing\.com\/new.*Bing\+AI.*
-DOMAIN,www.bing.com,proxy
-DOMAIN,www.bingapis.com,proxy
-DOMAIN,sydney.bing.com,proxy
+DOMAIN,www.bing.com
+DOMAIN,www.bingapis.com
 DOMAIN,sydney.bing.com
 ################################################
