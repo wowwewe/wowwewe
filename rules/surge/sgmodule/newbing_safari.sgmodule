@@ -1,7 +1,7 @@
 #!name=在safari中访问new bing
 [Header Rewrite]
 # 在safari中访问new bing，如果失效自行替换正规表达式匹配的域名
-^https:\/\/cn\.bing\.com\/create https://www.bing.com/create 302
+^https:\/\/cn\.bing\.com\/create https://www.bing.com/create/\ 302
 ^https:\/\/cn\.bing\.com\/search\?q=AI$ https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx 302
 ^https:\/\/www\.bing\.com\/search.*Bing\+AI.* header-replace-regex User-Agent \w+\/[\d\.]+$ "AppleWebKit/537.36 Chrome/112.0 Safari/537.36 Edg/112.0"
 ^https:\/\/www\.bing\.com\/new.*Bing\+AI.* header-replace-regex User-Agent \w+\/[\d\.]+$ "AppleWebKit/537.36 Chrome/112.0 Safari/537.36 Edg/112.0"
