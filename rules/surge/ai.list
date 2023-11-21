@@ -9,4 +9,6 @@ DOMAIN,www.bing.com
 DOMAIN,www.bingapis.com
 DOMAIN,sydney.bing.com
 DOMAIN,cdn.oaistatic.com
+DOMAIN-SUFFIXfeaturegates.org
+DOMAIN,widget.intercom.io
 ################################################
