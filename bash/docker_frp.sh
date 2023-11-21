@@ -131,24 +131,23 @@ mkdir /docker/frps
     green "======================="
     read frps_subdomain_host
 ######################################
-cat > /docker/frps/frps.ini <<-EOF
+cat > /docker/frps/frps.toml <<-EOF
 [common]
 bindPort = $frps_bind_port
 kcpBindPort = $frps_bind_port
 auth.token = "$frps_token"
-authentication_timeout = 900
-webServer.port  = $frps_dashboard_port
-webServer.user = $frps_dashboard_user
-webServer.password = $frps_dashboard_pwd
+WebServerConfig.webServer.port = $frps_dashboard_port
+WebServerConfig.webServer.user = $frps_dashboard_user
+WebServerConfig.webServer.password = $frps_dashboard_pwd
 vhostHTTPPort = $frps_vhost_http_port
 vhostHTTPSPort = $frps_vhost_https_port
 subDomainHost = $frps_subdomain_host
 transport.tls.force = true
 EOF
 sleep 5s
-docker run --restart=always --network host -d -v /docker/frps/frps.ini:/etc/frp/frps.ini --name frps snowdreamtech/frps
+docker run --restart=always --network host -d -v /docker/frps:/etc/frp --name frps snowdreamtech/frps
 green "Frps安装已完成"
-green "要修改配置可以直接重装一遍，或者修改/docker/frps/frps.ini后重启容器"
+green "要修改配置可以直接重装一遍，或者修改/docker/frps/frps.toml后重启容器"
 }
 #安装frpc
 function install_frpc(){
