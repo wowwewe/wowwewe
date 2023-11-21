@@ -133,17 +133,17 @@ mkdir /docker/frps
 ######################################
 cat > /docker/frps/frps.ini <<-EOF
 [common]
-bind_port = $frps_bind_port
-kcp_bind_port = $frps_bind_port
-token = $frps_token
+bindPort = $frps_bind_port
+kcpBindPort = $frps_bind_port
+auth.token = "$frps_token"
 authentication_timeout = 900
-dashboard_port = $frps_dashboard_port
-dashboard_user = $frps_dashboard_user
-dashboard_pwd = $frps_dashboard_pwd
-vhost_http_port = $frps_vhost_http_port
-vhost_https_port = $frps_vhost_https_port
-subdomain_host = $frps_subdomain_host
-tls_only = true
+webServer.port  = $frps_dashboard_port
+webServer.user = $frps_dashboard_user
+webServer.password = $frps_dashboard_pwd
+vhostHTTPPort = $frps_vhost_http_port
+vhostHTTPSPort = $frps_vhost_https_port
+subDomainHost = $frps_subdomain_host
+transport.tls.force = true
 EOF
 sleep 5s
 docker run --restart=always --network host -d -v /docker/frps/frps.ini:/etc/frp/frps.ini --name frps snowdreamtech/frps
