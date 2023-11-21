@@ -152,7 +152,7 @@ green "要修改配置可以直接重装一遍，或者修改/docker/frps/frps.t
 #安装frpc
 function install_frpc(){
     green "======================="
-    blue "请先新建/root/frpc并在其中配置frpc.ini如果需要放入改好名的证书！"
+    blue "请先新建/root/frpc并在其中配置frpc.toml如果需要放入改好名的证书！"
     blue "如果没有编辑的现在按ctrl+c退出安装"
     blue "sleep 20s"
     green "======================="
