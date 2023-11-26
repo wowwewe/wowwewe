@@ -25,3 +25,9 @@ DOMAIN,mbd.baidu.com
 DOMAIN,alexdenk.net
 DOMAIN,about.netflix.com
 DOMAIN-SUFFIX,revenuecat.com
+####多邻国广跟踪#####
+DOMAIN-SUFFIX,doubleclick-cn.net
+DOMAIN,toblog.ctobsnssdk.com
+DOMAIN,api-access.pangolin-sdk-toutiao1.com
+DOMAIN,log-api.pangolin-sdk-toutiao-b.com
+###################
