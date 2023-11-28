@@ -2,7 +2,7 @@
 [URL Rewrite]
 ^https?:\/\/cn\.bing\.com\/ https://www.bing.com/ 302
 [Header Rewrite]
-http-response ^https:\/\/www\.bing\.com\.* header-replace-regex User-Agent \w+\/[\d\.]+$ "AppleWebKit/537.36 Chrome/112.0 Safari/537.36 Edg/113.0"
+http-response ^https:\/\/www\.bing\.com\.* header-replace-regex User-Agent \w+\/[\d\.]+$ "AppleWebKit/605.1 Chrome/119.0 Safari/605.1 Edg/119.0"
 [MITM]
 hostname = %APPEND% www.bing.com,cn.bing.com
 
