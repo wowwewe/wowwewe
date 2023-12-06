@@ -14,7 +14,7 @@ DOMAIN-SUFFIX,arkdy.com
 DOMAIN-SUFFIX,ark.to
 DOMAIN-SUFFIX,justmysocks.net
 ####解决谷歌API因dns解析到国外导致很多网站加载不了#####
-DOMAIN,ocsp.pki.goog
+#DOMAIN,ocsp.pki.goog
 DOMAIN-SUFFIX,googleapis.com
 DOMAIN-SUFFIX,gstatic.com
 ################################################
