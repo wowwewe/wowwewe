@@ -1,5 +1,5 @@
-rm -f /root/snell-server.conf
-cat > /root/snell-server.conf <<EOF
+rm -f /root/sn.conf
+cat > /root/sn.conf <<EOF
 {
 [snell-server]
 listen = 0.0.0.0:8388
@@ -8,4 +8,4 @@ ipv6 = true
 obfs = off
 }
 EOF
-cd /root && ./snell-server -c /root/snell-server.conf
+cd /root && ./sn -c /root/sn.conf
