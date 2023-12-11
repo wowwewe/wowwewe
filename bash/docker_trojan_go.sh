@@ -153,6 +153,7 @@ docker run \
   -v /trojan-go/acme/ssl:/ssl \
   p4gefau1t/trojan-go
 EOF
+chmod +x /trojan-go/update.sh
 cat > /trojan-go/trojan-go/config.json <<EOF
 {
     "run_type": "server",
