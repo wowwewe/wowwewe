@@ -161,6 +161,7 @@ cat > /v2ray/update.sh <<EOF
     sleep 3s
     docker restart nginx
 EOF
+chmod +x /v2ray/update.sh
 cat > /v2ray/nginx/default.conf<<-EOF
 server { 
     listen       80;
