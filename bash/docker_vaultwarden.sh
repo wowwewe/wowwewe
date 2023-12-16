@@ -79,6 +79,9 @@ function update-ssl(){
     docker restart vaultwarden-nginx
 }
 #update
+#关闭web界面访问添加 -e WEB_VAULT_ENABLED=false
+#开启admin管理界面添加 -e ADMIN_TOKEN=密码 然后访问http(s)://ip:port/admin
+#关闭新用户注册 SIGNUPS_ALLOWED=false
 function update_vaultwarden(){
     docker stop vaultwarden-nginx
     docker stop vaultwarden
@@ -86,10 +89,13 @@ function update_vaultwarden(){
     docker rmi $(docker images -q)
     docker run -d \
       --name vaultwarden \
-      -e WEB_VAULT_ENABLED=false \
       -v /mypassword/vaultwarden/:/data/ \
       --network=vaultwarden-network \
       --ip 192.88.88.11 \
+      -e DISABLE_ICON_DOWNLOAD=true \
+      -e ICON_CACHE_TTL=0 \
+      -e ICON_CACHE_NEGTTL=0 \
+      -e WEBSOCKET_ENABLED=true \
       vaultwarden/server:latest
     docker restart vaultwarden-nginx
 }
@@ -186,6 +192,7 @@ docker run -d \
 -e DISABLE_ICON_DOWNLOAD=true \
 -e ICON_CACHE_TTL=0 \
 -e ICON_CACHE_NEGTTL=0 \
+-e WEBSOCKET_ENABLED=true \
 vaultwarden/server:latest
    
  docker run -d \
