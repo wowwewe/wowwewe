@@ -202,6 +202,9 @@ server {
     #v2ray
     location $newpath {
         proxy_redirect off;
+	if ($http_upgrade != "websocket") {
+                return 444;
+        }
         proxy_pass http://127.0.0.1:28901; 
 	    client_max_body_size 0;
         proxy_http_version 1.1;
