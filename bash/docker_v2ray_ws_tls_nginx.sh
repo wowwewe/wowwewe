@@ -304,10 +304,10 @@ docker run -d \
   --name nginx \
   -v /v2ray/nginx/default.conf:/etc/nginx/conf.d/default.conf \
   -v /v2ray/acme/ssl:/home \
-  -- ip 192.1.1.113 \
+  --network=proxynetwork \
+  --ip 192.1.1.113 \
   -p $proxyport:$proxyport \
   -p $proxyport:$proxyport/udp \
-  --network=proxynetwork \
   nginx
   
 green "=============================="
