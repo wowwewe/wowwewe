@@ -153,8 +153,6 @@ cat > /v2ray/update.sh <<EOF
           --name v2ray \
           --network=proxynetwork \
           --ip 192.1.1.13 \
-          -p 127.0.0.1:28901:28901 \
-          -p 127.0.0.1:28901:28901/udp \
           -v /v2ray/v2ray/config.json:/etc/v2ray/config.json \
           v2fly/v2fly-core run -c /etc/v2ray/config.json
     docker exec acme --renew -d $your_domain --force
@@ -206,7 +204,7 @@ server {
 	if (\$http_upgrade != "websocket") {
                 return 444;
         }
-        proxy_pass http://127.0.0.1:28901; 
+        proxy_pass http://192.1.1.13:28901; 
 	    client_max_body_size 0;
         proxy_http_version 1.1;
         proxy_set_header Upgrade \$http_upgrade;
@@ -272,8 +270,6 @@ docker run -d \
   --name v2ray \
   --network=proxynetwork \
   --ip 192.1.1.13 \
-  -p 127.0.0.1:28901:28901 \
-  -p 127.0.0.1:28901:28901/udp \
   -v /v2ray/v2ray/config.json:/etc/v2ray/config.json \
   v2fly/v2fly-core run -c /etc/v2ray/config.json
   
@@ -308,7 +304,10 @@ docker run -d \
   --name nginx \
   -v /v2ray/nginx/default.conf:/etc/nginx/conf.d/default.conf \
   -v /v2ray/acme/ssl:/home \
-  --net=host \
+  -- ip 1921.1.113 \
+  -p $proxyport:$proxyport \
+  -p $proxyport:$proxyport/udp \
+  --network=proxynetwork \
   nginx
   
 green "=============================="
