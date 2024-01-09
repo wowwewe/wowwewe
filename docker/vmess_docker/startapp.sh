@@ -22,9 +22,7 @@ cat > /root/config_tcp.json<<-EOF
     "loglevel": "error"
   }.
   "dns": {
-    "servers": [
-      "$DNS"
-    ]
+    "servers": ["$DNS"]
   }
 }
 EOF
