@@ -1,4 +1,5 @@
 #!name=在safari中访问new bing
+## \w+\/[\d\.]+$ "AppleWebKit/605.1 Chrome/119.0 Safari/605.1 Edg/119.0"
 [URL Rewrite]
 ^https?:\/\/cn\.bing\.com\/ https://www.bing.com/ 302
 [Header Rewrite]
