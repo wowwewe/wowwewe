@@ -238,6 +238,9 @@ cat > /v2ray/v2ray/config.json<<-EOF
   "outbound": {
     "protocol": "freedom",
     "settings": {}
+  },
+  "log": {
+    "loglevel": "error"
   }
 }
 EOF
