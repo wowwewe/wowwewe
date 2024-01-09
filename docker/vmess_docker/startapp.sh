@@ -16,10 +16,14 @@ cat > /root/config_tcp.json<<-EOF
   },
   "outbound": {
     "protocol": "freedom",
+    "domainStrategy": "UseIP",
     "settings": {}
   },
   "log": {
     "loglevel": "error"
+  },
+  "dns": {
+    "servers": ["$DNS"]
   }
 }
 EOF
