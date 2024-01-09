@@ -1,5 +1,5 @@
 #!name=强制桌面版百度在手机上防止跳转app
-[URL Rewrite]
-^https?:\/\/m\.baidu\.com\/ https://www.baidu.com/ 302
+[Header Rewrite]
+http-response ^https:\/\/m\.baidu\.com\.* header-replace-regex User-Agent Mozilla/5.0 (iPhone; CPU iPhone OS 17_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SP-engine/2.87.0
 [MITM]
 hostname = %APPEND% m.baidu.com
