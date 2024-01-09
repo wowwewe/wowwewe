@@ -1,9 +1,8 @@
 #!name=在safari中访问new bing
-## \w+\/[\d\.]+$ "AppleWebKit/605.1 Chrome/119.0 Safari/605.1 Edg/119.0"
 [URL Rewrite]
 ^https?:\/\/cn\.bing\.com\/ https://www.bing.com/ 302
 [Header Rewrite]
-http-response ^https:\/\/www\.bing\.com\.* header-replace-regex User-Agent Mozilla/5.0 (iPhone; CPU iPhone OS 16_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Mobile/15E148 Safari/605.1.15 BingSapphire/1.0.410218002
+http-response ^https:\/\/www\.bing\.com\.* header-replace-regex User-Agent \w+\/[\d\.]+$ "AppleWebKit/605.1 Chrome/119.0 Safari/605.1 Edg/119.0"
 [MITM]
 hostname = %APPEND% www.bing.com,cn.bing.com
 
