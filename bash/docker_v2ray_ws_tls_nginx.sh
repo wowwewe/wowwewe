@@ -241,10 +241,14 @@ cat > /v2ray/v2ray/config.json<<-EOF
   },
   "outbound": {
     "protocol": "freedom",
+    "domainStrategy": "UseIP",
     "settings": {}
   },
   "log": {
     "loglevel": "error"
+  },
+  "dns": {
+    "servers": ["localhost"]
   }
 }
 EOF
