@@ -3,6 +3,7 @@ MAINTAINER wowaqly
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
 ENV PASSWORD=password
+ENV DNS=127.0.0.1
 ENV APT_SOURCE_HOST "mirrors.huaweicloud.com"
 ENV VMESS_REV "v5.4.1"
 COPY startapp.sh /root/clash/startapp.sh
