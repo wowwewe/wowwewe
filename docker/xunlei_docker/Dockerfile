@@ -25,7 +25,6 @@ RUN GOPROXY=https://goproxy.cn,direct CGO_ENABLED=0 \
 RUN cp --parents -r /var/packages/pan-xunlei-com/target /rootfs
 
 FROM ubuntu
-LABEL maintainer="A<2023@wewe.uk>"
 
 ENV LANG=C.UTF-8 DEBIAN_FRONTEND=noninteractive LANG=zh_CN.UTF-8 LANGUAGE=zh_CN.UTF-8 LC_ALL=C
 
