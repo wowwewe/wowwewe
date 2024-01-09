@@ -20,7 +20,7 @@ function start_menu(){
     green " ==============================================="
     echo
     green " 1. 安装Docker"
-    green " 2. 安装Shadowsocks-shadowtls"
+    green " 2. 安装Snell-shadowtls"
     yellow " 0. 退出"
     echo
     read -p "Pls enter a number:" num
