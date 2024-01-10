@@ -16,7 +16,8 @@ cat > /root/config_tcp.json<<-EOF
   },
   "outbound": {
     "protocol": "freedom",
-    "settings": {"domainStrategy": "UseIP"}
+    "domainStrategy": "UseIP",
+    "settings": {}
   },
   "log": {
     "loglevel": "error"
