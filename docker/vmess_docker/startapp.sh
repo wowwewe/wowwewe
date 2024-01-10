@@ -2,7 +2,7 @@ rm -f /root/config_tcp.json
 cat > /root/config_tcp.json<<-EOF
 {
   "inbound": {
-    "port": 8388,
+    "port": $PORT,
     "listen":"0.0.0.0",
     "protocol": "vmess",
     "settings": {
@@ -16,8 +16,7 @@ cat > /root/config_tcp.json<<-EOF
   },
   "outbound": {
     "protocol": "freedom",
-    "domainStrategy": "UseIP",
-    "settings": {}
+    "settings": {"domainStrategy": "UseIP"}
   },
   "log": {
     "loglevel": "error"
