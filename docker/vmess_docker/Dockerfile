@@ -3,6 +3,7 @@ MAINTAINER wowaqly
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
 ENV PASSWORD=password
+ENV PORT=8388
 ENV DNS=localhost
 ENV APT_SOURCE_HOST "mirrors.huaweicloud.com"
 ENV VMESS_REV "v5.12.1"
