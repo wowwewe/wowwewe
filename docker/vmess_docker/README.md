@@ -7,3 +7,6 @@ DNS 可以是 ```1.1.1.1``` 或者 ```https://1.1.1.1/dns-query``` 或者 ```htt
 ```shell
 docker run -d --restart=always -p port:port -e PORT=8388 -e PASSWORD=uuid -e DNS=localhost --name vmess wowaqly/vmess
 ```
+```shell
+docker run -d --restart=always --net=host -e PORT=8388 -e PASSWORD=uuid -e DNS=localhost --name vmess wowaqly/vmess
+```
