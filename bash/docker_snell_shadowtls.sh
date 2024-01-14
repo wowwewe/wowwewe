@@ -27,6 +27,13 @@ function start_menu(){
     case "$num" in
     1)
     curl -fsSL https://get.docker.com | bash -s docker
+        sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+"ip":"127.0.0.1"
+}
+EOF
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker
     green " Docker已安装"
     ;;
     2)
