@@ -127,6 +127,13 @@ function rm_v2ray_nginx(){
 #install_v2ray_nginx
 function install_v2ray_nginx(){
     curl -fsSL https://get.docker.com | bash -s docker
+        sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+"ip":"127.0.0.1"
+}
+EOF
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker
     docker network create --subnet=192.1.1.0/24 proxynetwork
     mkdir /v2ray
     mkdir /v2ray/nginx
