@@ -122,6 +122,7 @@ function install_update_docker_and_dockerrun(){
     sudo mkdir -p /etc/docker
     sudo tee /etc/docker/daemon.json <<-'EOF'
 {
+"ip":"127.0.0.1",
 "registry-mirrors": ["https://mirror.ccs.tencentyun.com","http://hub-mirror.c.163.com"]
 }
 EOF
