@@ -124,6 +124,13 @@ function rm_trojian(){
 #install
 function install_trojan-go(){
     curl -fsSL https://get.docker.com | bash -s docker
+        sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+"ip":"127.0.0.1"
+}
+EOF
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker
     docker network create --subnet=192.1.1.0/24 proxynetwork
     mkdir /trojan-go
     mkdir /trojan-go/acme
