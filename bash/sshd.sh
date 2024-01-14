@@ -21,6 +21,7 @@ blue "请输入ssh证书公钥"
 green "======================="
 read ssh_pub
 
+sudo apt update && apt upgrade -y && apt dist-upgrade -y && apt full-upgrade -y && apt autoremove -y
 sudo mv /root/.ssh/authorized_keys /root/.ssh/authorized_keys.b
 
 sudo cat > /root/.ssh/authorized_keys<<-EOF
