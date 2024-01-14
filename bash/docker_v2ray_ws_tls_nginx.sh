@@ -175,8 +175,8 @@ server {
     rewrite ^(.*)$  https://\$host\$1 permanent; 
 }
 server {
-    listen [::]:$proxyport ssl http2 ;
-    listen $proxyport ssl http2;
+    listen [::]:$proxyport ssl;
+    listen $proxyport ssl;
     server_name $your_domain;
     server_tokens off;
     proxy_intercept_errors on;
