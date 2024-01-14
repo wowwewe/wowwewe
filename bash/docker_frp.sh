@@ -27,6 +27,7 @@ function install_docker(){
     mkdir -p /etc/docker
 tee /etc/docker/daemon.json <<-'EOF'
 {
+"ip":"127.0.0.1",
 "registry-mirrors": ["https://mirror.ccs.tencentyun.com","https://registry.docker-cn.com","http://hub-mirror.c.163.com"]
 }
 EOF
