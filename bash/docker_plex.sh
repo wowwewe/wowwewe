@@ -74,6 +74,7 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
     sudo mkdir -p /etc/docker
     sudo tee /etc/docker/daemon.json <<-'EOF'
 {
+"ip":"127.0.0.1",
 "registry-mirrors": ["https://mirror.ccs.tencentyun.com","http://hub-mirror.c.163.com"]
 }
 EOF
