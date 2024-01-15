@@ -162,7 +162,7 @@ cat > /v2ray/update.sh <<EOF
           --ip 192.1.1.13 \
           -v /v2ray/v2ray/config.json:/etc/v2ray/config.json \
           v2fly/v2fly-core run -c /etc/v2ray/config.json
-    docker exec acme --renew -d $your_domain --force -k ec-521
+    docker exec acme --renew -d $your_domain --force -k ec-384
     sleep 3s
     docker restart nginx
 EOF
@@ -274,7 +274,7 @@ docker run -d  \
   --name=acme \
   neilpang/acme.sh daemon
 docker exec acme --set-default-ca  --server  letsencrypt
-docker exec acme --issue  -d $your_domain  --standalone -k ec-521
+docker exec acme --issue  -d $your_domain  --standalone -k ec-384
 docker exec acme mkdir /nginx-ssl
 docker exec acme --install-cert -d  $your_domain   \
         --key-file   /nginx-ssl/$your_domain.key \
