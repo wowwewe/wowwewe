@@ -202,6 +202,8 @@ server {
     }
     ssl_certificate /home/fullchain.cer; 
     ssl_certificate_key /home/$your_domain.key;
+    #指定椭圆曲线，及时参考网络相关内容更换更安全的椭圆曲线
+    ssl_ecdh_curve secp384r1;
     #TLS 版本控制
     ssl_protocols TLSv1.3;
     #如果要使用TLSv1.2,请在上一行的TLSv1.3前面加入TLSv1.2
