@@ -149,7 +149,7 @@ docker stop trojan-go
 docker rm trojan-go
 docker rmi p4gefau1t/trojan-go
 sleep 3s
-docker exec acme --renew -d $your_domain --force
+docker exec acme --renew -d $your_domain --force -k ec-384
 sleep 3s
 docker run \
   -d \
@@ -175,12 +175,13 @@ cat > /trojan-go/trojan-go/config.json <<EOF
     "udp_timeout": 120,
     "ssl": {
         "prefer_server_cipher": true,
-        "cipher": "TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
+        "cipher": "TLS_AES_256_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA384",
         "fingerprint": "chrome",
         "verify": true,
         "verify_hostname": true,
         "cert": "/ssl/fullchain.cer",
         "key": "/ssl/$your_domain.key",
+	"curves": "secp384r1",
         "sni": "$your_domain",
         "alpn": [
            "http/1.1",
@@ -218,7 +219,7 @@ docker run -d  \
   --name=acme \
   neilpang/acme.sh daemon
 docker exec acme --set-default-ca  --server  letsencrypt
-docker exec acme --issue  -d $your_domain  --standalone
+docker exec acme --issue  -d $your_domain  --standalone -k ec-384
 docker exec acme mkdir /home-ssl
 docker exec acme --install-cert -d  $your_domain   \
         --key-file   /home-ssl/$your_domain.key \
