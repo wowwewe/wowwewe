@@ -149,7 +149,7 @@ docker stop trojan-go
 docker rm trojan-go
 docker rmi p4gefau1t/trojan-go
 sleep 3s
-docker exec acme --renew -d $your_domain --force -k ec-384
+docker exec acme --renew -d $your_domain --force --keylength ec-384
 sleep 3s
 docker run \
   -d \
@@ -219,7 +219,7 @@ docker run -d  \
   --name=acme \
   neilpang/acme.sh daemon
 docker exec acme --set-default-ca  --server  letsencrypt
-docker exec acme --issue  -d $your_domain  --standalone -k ec-384
+docker exec acme --issue  -d $your_domain  --standalone --keylength ec-384
 docker exec acme mkdir /home-ssl
 docker exec acme --install-cert -d  $your_domain   \
         --key-file   /home-ssl/$your_domain.key \
