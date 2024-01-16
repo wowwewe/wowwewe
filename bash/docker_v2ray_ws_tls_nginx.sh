@@ -196,6 +196,7 @@ server {
 server {
     listen [::]:$proxyport ssl;
     listen $proxyport ssl;
+    http2 on;
     server_name $your_domain;
     server_tokens off;
     proxy_intercept_errors on;
