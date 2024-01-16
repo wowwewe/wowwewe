@@ -151,6 +151,8 @@ EOF
     sleep 3s
 cat > /v2ray/update.sh <<EOF
      docker stop nginx
+     docker rm nginx
+     docker rmi nginx
      docker stop v2ray
      docker rm v2ray 
      docker rmi v2fly/v2fly-core
@@ -164,6 +166,16 @@ cat > /v2ray/update.sh <<EOF
           v2fly/v2fly-core run -c /etc/v2ray/config.json
     docker exec acme --renew -d $your_domain --force -k ec-384
     sleep 3s
+    docker run -d \
+         --restart=always \
+         --name nginx \
+         -v /v2ray/nginx/default.conf:/etc/nginx/conf.d/default.conf \
+         -v /v2ray/acme/ssl:/home \
+         --network=proxynetwork \
+         --ip 192.1.1.113 \
+         -p $proxyport:$proxyport \
+         -p $proxyport:$proxyport/udp \
+        nginx
     docker restart nginx
 EOF
 chmod +x /v2ray/update.sh
