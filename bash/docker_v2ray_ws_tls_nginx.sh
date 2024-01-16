@@ -199,7 +199,7 @@ server {
     listen  [::]:$proxyport quic reuseport;
     listen  $proxyport  quic reuseport;
     http2 on;
-    add_header Alt-Svc 'h3=":8443";ma=2592000'
+    add_header Alt-Svc 'h3=":8443";ma=2592000';
     server_name $your_domain;
     server_tokens off;
     proxy_intercept_errors on;
