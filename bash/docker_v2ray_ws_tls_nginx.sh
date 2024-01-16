@@ -200,10 +200,10 @@ server {
     server_tokens off;
     proxy_intercept_errors on;
     error_page 400 = https://$your_domain:$proxyport;
-    if ($request_method !~ ^(GET)$ ) {
+    if (\$request_method !~ ^(GET)$ ) {
                     return 444;
     }
-    if ($http_user_agent ~* LWP::Simple|BBBike|wget|curl) {
+    if (\$http_user_agent ~* LWP::Simple|BBBike|wget|curl) {
                return 444;
     }
     #如果要设置成他人不能访问伪装的网站，先去cloud flare-dns设置一个error的解析并开启小黄云，然后去防火墙设置完整rul https://error.xxxx.xxx/ 为阻止。最后去掉#error_page 403 和 #deny all;这两行的注释
