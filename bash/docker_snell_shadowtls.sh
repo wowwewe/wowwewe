@@ -90,7 +90,7 @@ function install_shadowsocks(){
  sudo docker run -d -e PSK=$snell_password --name=sn-v4 --restart=always --network=proxynetwork --ip 192.1.1.188  wowaqly/sn_v4
  sudo docker run  \
             -e MODE=server \
-            -e LISTEN=0.0.0.0:$shadowtls_port  \
+            -e LISTEN=::0:$shadowtls_port  \
             -e SERVER=192.1.1.188:8388 \
             -e TLS=$shadowtls_web \
             -e PASSWORD=$shadowtls_password \
