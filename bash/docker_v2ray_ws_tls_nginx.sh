@@ -211,7 +211,7 @@ server {
     ssl_early_data off;
     ssl_stapling on;
     ssl_stapling_verify on;
-    add_header Strict-Transport-Security "max-age=31536000;includeSubDomains";
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
     if (\$request_method !~ ^(GET)$ ) {
                     return 444;
     }
@@ -252,7 +252,7 @@ server {
     ssl_stapling_verify on;
     #反代plex的时候不能开启下一行防跨站，否则无法登录plex
     #add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';";
-    add_header Strict-Transport-Security "max-age=31536000;includeSubDomains";
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
     #access_log /var/log/nginx/access.log combined;
     #v2ray
     location $newpath {
@@ -260,6 +260,7 @@ server {
 	if (\$http_upgrade != "websocket") {
                 return 444;
         }
+	add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';";
         proxy_pass http://192.1.1.13:28901; 
 	client_max_body_size 0;
         proxy_http_version 1.1;
