@@ -200,7 +200,7 @@ server {
     server_name  _;
     return 444;
     server_tokens off;
-    ssl_certificate /home/fullchain.cer; 
+    ssl_certificate /home/fullchain.pem; 
     ssl_certificate_key /home/$your_domain.key;
     #指定椭圆曲线，及时参考网络相关内容更换更安全的椭圆曲线
     ssl_ecdh_curve secp384r1;
@@ -239,7 +239,7 @@ server {
     location / {
         proxy_pass http://192.1.1.15:32400;
     }
-    ssl_certificate /home/fullchain.cer; 
+    ssl_certificate /home/fullchain.pem; 
     ssl_certificate_key /home/$your_domain.key;
     #指定椭圆曲线，及时参考网络相关内容更换更安全的椭圆曲线
     ssl_ecdh_curve secp384r1;
@@ -320,7 +320,7 @@ docker exec acme --issue  -d $your_domain  --standalone --keylength ec-384
 docker exec acme mkdir /nginx-ssl
 docker exec acme --install-cert -d  $your_domain   \
         --key-file   /nginx-ssl/$your_domain.key \
-        --fullchain-file /nginx-ssl/fullchain.cer
+        --fullchain-file /nginx-ssl/fullchain.pem
   
 docker run -d \
   --restart=always \
