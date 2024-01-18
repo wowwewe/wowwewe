@@ -211,6 +211,7 @@ server {
     ssl_early_data off;
     ssl_stapling on;
     ssl_stapling_verify on;
+    ssl_insecure_renegotiation off;
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
     if (\$request_method !~ ^(GET)$ ) {
                     return 444;
@@ -250,6 +251,7 @@ server {
     ssl_early_data off;
     ssl_stapling on;
     ssl_stapling_verify on;
+    ssl_insecure_renegotiation off;
     #反代plex的时候不能开启下一行防跨站，否则无法登录plex
     #add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';";
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
