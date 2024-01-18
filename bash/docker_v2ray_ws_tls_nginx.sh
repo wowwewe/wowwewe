@@ -193,22 +193,13 @@ server {
     #return 444;
     rewrite ^(.*)$  https://\$host\$1 permanent; 
 server { 
+    #禁止ip直接访问
     listen [::]:$proxyport ssl;
     listen $proxyport ssl;
-    listen  [::]:$proxyport quic reuseport;
-    listen  $proxyport  quic reuseport;
     http2 on;
-    add_header Alt-Svc 'h3=":$proxyport";ma=2592000';
     server_name  _;
-    #return 444;
-    deny all;
+    return 444;
     server_tokens off;
-    if (\$request_method !~ ^(GET)$ ) {
-                    return 444;
-    }
-    if (\$http_user_agent ~* LWP::Simple|BBBike|wget|curl) {
-               return 444;
-    }
     ssl_certificate /home/fullchain.cer; 
     ssl_certificate_key /home/$your_domain.key;
     #指定椭圆曲线，及时参考网络相关内容更换更安全的椭圆曲线
