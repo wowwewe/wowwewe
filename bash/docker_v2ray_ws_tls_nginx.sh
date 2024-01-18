@@ -183,7 +183,7 @@ cat > /v2ray/nginx/default.conf<<-EOF
 server { 
     listen       80;
     server_name  _;
-    deny all;
+    return 444;
     server_tokens off;
 }
 server { 
@@ -212,6 +212,12 @@ server {
     ssl_stapling on;
     ssl_stapling_verify on;
     add_header Strict-Transport-Security "max-age=31536000";
+    if (\$request_method !~ ^(GET)$ ) {
+                    return 444;
+    }
+    if (\$http_user_agent ~* LWP::Simple|BBBike|wget|curl) {
+               return 444;
+    }
 }
 server {
     listen [::]:$proxyport ssl;
@@ -230,10 +236,7 @@ server {
     if (\$http_user_agent ~* LWP::Simple|BBBike|wget|curl) {
                return 444;
     }
-    #如果要设置成他人不能访问伪装的网站，先去cloud flare-dns设置一个error的解析并开启小黄云，然后去防火墙设置完整rul https://error.xxxx.xxx/ 为阻止。最后去掉#error_page 403 和 #deny all;这两行的注释
-    #error_page 403 = https://error.xxxx.xxx;
     location / {
-        #deny all;
         proxy_pass http://192.1.1.15:32400;
     }
     ssl_certificate /home/fullchain.cer; 
