@@ -183,7 +183,7 @@ cat > /v2ray/nginx/default.conf<<-EOF
 server { 
     listen       80;
     server_name  _;
-    return 444;
+    deny all;
     server_tokens off;
 }
 server { 
@@ -192,6 +192,35 @@ server {
     server_tokens off;
     #return 444;
     rewrite ^(.*)$  https://\$host\$1 permanent; 
+server { 
+    listen [::]:$proxyport ssl;
+    listen $proxyport ssl;
+    listen  [::]:$proxyport quic reuseport;
+    listen  $proxyport  quic reuseport;
+    http2 on;
+    add_header Alt-Svc 'h3=":$proxyport";ma=2592000';
+    server_name  _;
+    #return 444;
+    deny all;
+    server_tokens off;
+    if (\$request_method !~ ^(GET)$ ) {
+                    return 444;
+    }
+    if (\$http_user_agent ~* LWP::Simple|BBBike|wget|curl) {
+               return 444;
+    }
+    ssl_certificate /home/fullchain.cer; 
+    ssl_certificate_key /home/$your_domain.key;
+    #指定椭圆曲线，及时参考网络相关内容更换更安全的椭圆曲线
+    ssl_ecdh_curve secp384r1;
+    #TLS 版本控制
+    ssl_protocols TLSv1.3;
+    #如果要使用TLSv1.2,请在上一行的TLSv1.3前面加入TLSv1.2
+    #  1.3 0-RTT
+    ssl_early_data off;
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    add_header Strict-Transport-Security "max-age=31536000";
 }
 server {
     listen [::]:$proxyport ssl;
@@ -199,7 +228,7 @@ server {
     listen  [::]:$proxyport quic reuseport;
     listen  $proxyport  quic reuseport;
     http2 on;
-    add_header Alt-Svc 'h3=":8443";ma=2592000';
+    add_header Alt-Svc 'h3=":$proxyport";ma=2592000';
     server_name $your_domain;
     server_tokens off;
     proxy_intercept_errors on;
