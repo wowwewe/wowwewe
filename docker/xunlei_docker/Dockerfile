@@ -1,4 +1,4 @@
-FROM golang as builder
+FROM golang:1.20.5 as builder
 
 ARG TARGETARCH
 ENV DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
