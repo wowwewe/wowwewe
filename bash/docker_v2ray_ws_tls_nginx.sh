@@ -156,7 +156,6 @@ cat > /v2ray/update.sh <<EOF
      docker stop v2ray
      docker rm v2ray 
      docker rmi v2fly/v2fly-core
-     sleep 3s
      docker run -d \
           --restart=always \
           --name v2ray \
@@ -165,7 +164,6 @@ cat > /v2ray/update.sh <<EOF
           -v /v2ray/v2ray/config.json:/etc/v2ray/config.json \
           v2fly/v2fly-core run -c /etc/v2ray/config.json
     docker exec acme --renew -d $your_domain --force --keylength ec-384
-    sleep 3s
     docker run -d \
          --restart=always \
          --name nginx \
@@ -176,7 +174,6 @@ cat > /v2ray/update.sh <<EOF
          -p $proxyport:$proxyport \
          -p $proxyport:$proxyport/udp \
         nginx
-    docker restart nginx
 EOF
 chmod +x /v2ray/update.sh
 cat > /v2ray/nginx/default.conf<<-EOF
