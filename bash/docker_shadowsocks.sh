@@ -94,10 +94,11 @@ sudo docker run -e PASSWORD=$shadowsocks_password \
             -e SERVER_ADDRS=::0 \
             -e DNS_ADDRS=$shadowsocks_dns \
             -e METHOD=$shadowsocks_method \
+	    -e ARGS=-u \
             -p $shadowsocks_port:8388 \
             -p $shadowsocks_port:8388/udp \
             --name ss-server \
-             --restart=always \
+            --restart=always \
             -d shadowsocks/shadowsocks-libev
 urlsafe_base64(){
 	date=$(echo -n "$1"|base64|sed ':a;N;s/\n/ /g;ta'|sed 's/ //g;s/=//g;s/+/-/g;s/\//_/g')
