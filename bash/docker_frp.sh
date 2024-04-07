@@ -97,22 +97,6 @@ mkdir /docker/frps
     blue "请输入用于连接的密码"
     green "======================="
     read frps_token
-######################################
-    green "======================="
-    blue "请输入用于web管理界面的端口号 范围1-65533"
-    blue "请注意不要重复使用端口"
-    green "======================="
-    read frps_dashboard_port
-######################################
-    green "======================="
-    blue "请输入用于web管理界面的用户名"
-    green "======================="
-    read frps_dashboard_user
-######################################
-    green "======================="
-    blue "请输入用于web管理界面的密码"
-    green "======================="
-    read frps_dashboard_pwd
 ###################################### 
     green "======================="
     blue "请输入用于反代http服务的端口号 范围1-65533 "
@@ -138,8 +122,8 @@ bindPort = $frps_bind_port
 kcpBindPort = $frps_bind_port
 quicBindPort = $frps_bind_port
 token = "$frps_token"
-vhostHTTPPort = $frps_dashboard_port
-vhostHTTPSPort = $frps_dashboard_user
+vhostHTTPPort = $frps_vhost_http_port
+vhostHTTPSPort = $frps_vhost_https_port
 tls = bool
 subDomainHost = $frps_subdomain_host
 EOF
