@@ -136,14 +136,12 @@ cat > /docker/frps/frps.toml <<-EOF
 [common]
 bindPort = $frps_bind_port
 kcpBindPort = $frps_bind_port
-auth.token = "$frps_token"
-WebServerConfig.webServer.port = $frps_dashboard_port
-WebServerConfig.webServer.user = $frps_dashboard_user
-WebServerConfig.webServer.password = $frps_dashboard_pwd
-vhostHTTPPort = $frps_vhost_http_port
-vhostHTTPSPort = $frps_vhost_https_port
+quicBindPort = $frps_bind_port
+token = "$frps_token"
+vhostHTTPPort = $frps_dashboard_port
+vhostHTTPSPort = $frps_dashboard_user
+tls = bool
 subDomainHost = $frps_subdomain_host
-transport.tls.force = true
 EOF
 sleep 5s
 docker run --restart=always --network host -d -v /docker/frps:/etc/frp --name frps snowdreamtech/frps
