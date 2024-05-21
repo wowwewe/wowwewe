@@ -1,6 +1,6 @@
 #!/bin/sh
 echo [General] > /tmp/setting
-echo download_path=/Downloads/115download       >  /tmp/setting
+echo download_path=/Downloads/115download       >> /tmp/setting
 echo download_speed=0                           >> /tmp/setting
 echo download_tasks=5                           >> /tmp/setting
 echo last_download_path=/Downloads/115download/ >> /tmp/setting
