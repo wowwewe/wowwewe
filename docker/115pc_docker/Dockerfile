@@ -1,8 +1,8 @@
 FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntunoble
-ENV PUDI "1000"
-ENV PGID "1000"
-ENV LC_ALL "zh_CN.UTF-8"
-ENV TITLE "115pc"
+ENV PUID=1000
+ENV PGID=1000
+ENV LC_ALL=zh_CN.UTF-8
+ENV TITLE=115pc
 ENV APP_VERSION     "v2.0.10.2"
 ENV APT_SOURCE_HOST "mirrors.huaweicloud.com"
 RUN sed -i "s@http://.*archive.ubuntu.com@https://${APT_SOURCE_HOST}@g" /etc/apt/sources.list && sed -i "s@http://.*security.ubuntu.com@https://${APT_SOURCE_HOST}@g" /etc/apt/sources.list
