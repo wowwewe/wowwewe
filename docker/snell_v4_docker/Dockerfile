@@ -1,5 +1,4 @@
 FROM ubuntu:22.04
-MAINTAINER wowaqly
 ENV APT_SOURCE_HOST "mirrors.huaweicloud.com"
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
@@ -13,5 +12,5 @@ RUN sed -i "s@http://.*archive.ubuntu.com@http://${APT_SOURCE_HOST}@g" /etc/apt/
 RUN wget https://dl.nssurge.com/snell/snell-server-v4.1.0-linux-amd64.zip && unzip snell-server-v4.1.0-linux-amd64.zip && rm snell-server-v4.1.0-linux-amd64.zip && cp snell-server /root && rm snell-server
 
 
-CMD bash /root/start.sh
+CMD ["bash","/root/start.sh"]
 
