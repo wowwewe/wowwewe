@@ -4,6 +4,7 @@ ENV APT_SOURCE_HOST "mirrors.huaweicloud.com"
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
 ENV PSK=password
+ENV DNS=127.0.0.1
 COPY start.sh /root/start.sh
 
 
