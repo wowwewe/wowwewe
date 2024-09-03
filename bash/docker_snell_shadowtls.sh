@@ -77,6 +77,12 @@ function install_shadowsocks(){
     green "======================="
     read snell_password
 ######################################
+######################################
+    green "======================="
+    blue "请输入snell的dns"
+    green "======================="
+    read snell_dns
+######################################
     docker stop sn-v4
     docker stop shadow-tls
     docker rm sn-v4
@@ -87,7 +93,7 @@ function install_shadowsocks(){
     docker network create --subnet=192.1.1.0/24 proxynetwork
     ufw allow $shadowtls_port
     ufw allow $shadowtls_port/udp
- sudo docker run -d -e PSK=$snell_password --name=sn-v4 --restart=always --network=proxynetwork --ip 192.1.1.188  wowaqly/sn_v4
+ sudo docker run -d -e PSK=$snell_password -e DNS=$snell_dns --name=sn-v4 --restart=always --network=proxynetwork --ip 192.1.1.188  wowaqly/sn_v4
  sudo docker run  \
             -e MODE=server \
             -e LISTEN=::0:$shadowtls_port  \
