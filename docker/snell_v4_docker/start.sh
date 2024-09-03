@@ -6,6 +6,7 @@ listen = 0.0.0.0:8388
 psk = ${PSK}
 ipv6 = true
 obfs = off
+dns = ${DNS}
 }
 EOF
 cd /root && ./snell-server -c /root/snell-server.conf
