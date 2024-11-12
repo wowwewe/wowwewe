@@ -23,7 +23,7 @@ DOMAIN-SUFFIX,nfmovies.com
 DOMAIN-SUFFIX,mypikpak.com
 DOMAIN-SUFFIX,xunlei.com
 DOMAIN-SUFFIX,siteintercept.qualtrics.com
-DOMAIN-SUFFIX,plex.tv
+#DOMAIN-SUFFIX,plex.tv
 DOMAIN-SUFFIX,bitwarden.com
 DOMAIN-SUFFIX,pwnedpasswords.com
 DOMAIN-SUFFIX,cloudflare.com
