@@ -23,5 +23,5 @@ services:
   forwarder:
     nodes:
     - name: ssh
-      addr: 远端服务器wireguard内网ip:39130
+      addr: 远端服务器wireguard内网ip:22
 ```
