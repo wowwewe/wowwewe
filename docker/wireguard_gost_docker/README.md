@@ -1,6 +1,8 @@
 # docker连接wireguard组网并且利用gost将端口转发出来
-\n 一般配置network以获得固定ip方便管理使用
-\n wireguard的配置文件放/xxx/xxx，例如/xxx/xxx/wg1.conf
+\n 
+一般配置network以获得固定ip方便管理使用
+\n 
+wireguard的配置文件放/xxx/xxx，例如/xxx/xxx/wg1.conf
 ```
 docker run -d \
   --name=wg-gost \
@@ -14,7 +16,7 @@ docker run -d \
   wowaqly/wg-gost
 ```
 
-## gost.yaml示例 更多示例参考 https://gost.run
+gost.yaml示例 更多示例参考 https://gost.run
 ```
 services:
 - name: ssh
