@@ -6,12 +6,13 @@ docker run -d \
   -e TZ=Asia/Shanghai \
   --network=xxx \
   --ip=xxx.xxx.xxx.xxx \
-  -v /xxx/xxx:/root/gost.yaml \
+  -v /xxx/xxx/gost.yaml:/root/gost.yaml \
   -v /xxx/xxx:/config \
   --restart unless-stopped \
   wowaqly/wg-gost
 ```
-gost.yaml示例
+wireguard的配置文件放/xxx/xxx，例如/xxx/xxx/wg1.conf
+gost.yaml示例 更多示例参考 https://gost.run
 ```
 services:
 - name: ssh
