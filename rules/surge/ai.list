@@ -1,14 +1,3 @@
 ################################################
-# chatgpt
-DOMAIN-SUFFIX,openai.com
-# new bing，如果失效自行替换正规表达式匹配的域名
-#URL-REGEX,^https://www\.bing\.com/turing/conversation/create
-#URL-REGEX,^https:\/\/www\.bing\.com\/search.*Bing\+AI.*
-#URL-REGEX,^https:\/\/www\.bing\.com\/new.*Bing\+AI.*
-DOMAIN,www.bing.com
-DOMAIN,www.bingapis.com
-DOMAIN,sydney.bing.com
-DOMAIN,cdn.oaistatic.com
-DOMAIN-SUFFIX,featuregates.org
-DOMAIN,widget.intercom.io
+DOMAIN-SUFFIX,copilot.microsoft.com
 ################################################
