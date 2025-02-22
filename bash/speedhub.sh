@@ -24,7 +24,7 @@ docker rm registry-hub
 docker rm registry-ghcr
 docker rm registry-k8s
 docker rm acme-speedhub
-docker rm nginx-speed
+docker rm nginx-speedhub
 docker network rm hubnet
 rm -rf /docker/speedhub
 docker rmi $(docker images -q)
