@@ -19,6 +19,7 @@ rc-update add docker boot
 service docker start
 ufw allow 443/tcp
 ufw allow 443/udp
+ufw allow 80/tcp
 docker stop registry-hub
 docker stop registry-ghcr
 docker stop registry-k8s
