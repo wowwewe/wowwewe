@@ -391,7 +391,7 @@ green "安装完成,加速地址为hub/ghcr/k8s/raw/git.你的域名"
 blue "crontab -e               如果让选择编辑器选择vim"
 blue "加入   TZ="Asia/Shanghai" 0 3 * * * /docker/speedhub/clean.sh    "
 blue "加入   TZ="Asia/Shanghai" 0 5 1 * * /docker/speedhub/sslupdate.sh    "
-blue " service cron reload && service cron restart "
+blue " rc-service crond restart "
 green 
 }
 rmload
