@@ -14,6 +14,7 @@ function yellow(){
 function rmload(){
 apt-get update
 ufw allow 443/tcp
+ufw allow 80/tcp
 ufw allow 443/udp
 docker stop registry-hub
 docker stop registry-ghcr
