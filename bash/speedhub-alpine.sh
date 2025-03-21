@@ -337,6 +337,22 @@ location / {
     proxy_set_header X-Forwarded-Proto \$scheme;
 }
 }
+server {
+        listen 443 ssl;
+ server_name gist.$your_domain;
+
+ ssl_certificate /home/$your_domain.pem;
+    ssl_certificate_key /home/$your_domain.key;
+    ssl_ecdh_curve secp384r1;
+    ssl_protocols TLSv1.3;
+location / {
+    proxy_pass https://gist.githubusercontent.com;
+    proxy_set_header Host gist.githubusercontent.com;
+    proxy_set_header X-Real-IP \$remote_addr;
+    proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto \$scheme;
+}
+}
 EOF
 
 #registry
