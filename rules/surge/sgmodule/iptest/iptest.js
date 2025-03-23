@@ -6,7 +6,7 @@
  * 版本：1.5
  */
 
-let url = "http://ip-api.com/json"
+let url = "https://ip-api.com/json"
 
 $httpClient.get(url, function(error, response, data){
     let jsonData = JSON.parse(data)
