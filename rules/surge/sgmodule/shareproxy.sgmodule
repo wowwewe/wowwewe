@@ -1,0 +1,6 @@
+#!name=开启WI-FI/热点分享socks5和http代理,socks=11112.http=11111
+[General]
+allow-hotspot-access = true
+allow-wifi-access = true
+wifi-access-http-port = 11111
+wifi-access-socks5-port = 11112
