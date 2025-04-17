@@ -1,5 +1,5 @@
 用途同
-‘’‘bash
+```bash
 ./xray uuid && ./xray x25519
-‘’‘
+```
 依赖python3
