@@ -47,15 +47,9 @@ public_key_xray = base64.urlsafe_b64encode(public_bytes).decode().rstrip("=")
 # 生成一个随机 UUID
 random_uuid = str(uuid.uuid4())
 
-# 打印结果
-def print_blue(text):
-    print(f"\033[34m{text}\033[0m")
-
-print_blue("已经随机生成uuid和key，需要的话直接复制")
-print_blue("Private key为服务器使用，Public key为客户端使用")
-print_blue(f"Private key服务器使用: {private_key_xray}")
-print_blue(f"Public key客户端使用: {public_key_xray}")
-print_blue(f"UUID        : {random_uuid}")
+print(private_key_xray)
+print(public_key_xray)
+print(random_uuid)
 
 EOF
 chmod +x /xray/xraykey.py
@@ -63,16 +57,11 @@ python3 /xray/xraykey.py
 }
 
 function check_xary(){
+mapfile -t key_output < <(python3 /xray/xraykey.py)
+    xrprivatekey="${key_output[0]}"
+    xrpublickey="${key_output[1]}"
+    uuid="${key_output[2]}"
 sleep 2s
-    green "======================="
-    blue "请输入UUID"
-    green "======================="
-    read uuid
-     green "======================="
-    blue "privateKey"
-    green "======================="
-    read xrprivatekey
-    green "======================="
     blue "请输用于连接的端口(可以是443或其他未占用端口)"
     green "======================="
     read proxyport
@@ -170,7 +159,11 @@ docker run -d --name=xray --restart=always -v /xray/config.json:/root/config.jso
 green "=============================="
 green "         安装已经完成"
 green "===========配置参数============"
-blue "crontab -e               如果让选择编辑器选择vim"
+red "UUID: ${uuid}"
+red "PublicKey: ${xrpublickey}"
+red "ServerName: ${dest}"
+green "===========自动更新============"
+blue "crontab -e        如果让选择编辑器选择vim"
 blue "在最后一行加入   0 12 1 * * /xray/update.sh    "
 blue " service cron reload && service cron restart "
 }
