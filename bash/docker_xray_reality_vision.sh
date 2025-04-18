@@ -94,6 +94,7 @@ function rm_xray(){
     docker stop plex
     docker stop nginx
     docker stop v2ray
+    docker rm xray
     docker rm nginx
     docker rm v2ray
     docker rm trojan-go
