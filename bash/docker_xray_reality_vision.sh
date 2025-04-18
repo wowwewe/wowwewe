@@ -85,6 +85,10 @@ sleep 2s
     blue "请输入伪装用的网站所用的端口，一般是443"
     green "======================="
     read destport
+    green "======================="
+    blue "请输入dns,例如8.8.8.8"
+    green "======================="
+    read dnsserver
    ufw allow $proxyport/tcp
    ufw allow $proxyport/udp
     red "==============="
@@ -130,6 +134,9 @@ cat > /xray/config.json <<EOF
                     }
                 ],
                 "decryption": "none"
+            },
+            "dns": {
+              "servers": ["${dnsserver}"]
             },
             "streamSettings": {
                 "network": "tcp",
