@@ -75,7 +75,10 @@ sleep 2s
     green "======================="
     read destport
     green "======================="
-    blue "请输入dns,例如8.8.8.8"
+    blue "请输入dns 用’,‘分割多个dns "
+    blue "如果需要Ipv6访问外网，需要输入一个Ipv6 dns"
+    blue " Google Ipv6 dns : 2001:4860:4860::8888 "  
+    blue " 也可以使用DOH "  
     green "======================="
     read dnsserver
    ufw allow $proxyport/tcp
