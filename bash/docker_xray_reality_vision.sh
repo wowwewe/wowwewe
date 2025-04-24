@@ -108,7 +108,7 @@ function rm_xray(){
 }
 function install_xray(){
 curl -fsSL https://get.docker.com | bash -s docker
-docker network create --subnet=10.1.1.0/24 proxynetwork
+docker network create --ipv6 --subnet=10.1.1.0/24 proxynetwork
 cat > /xray/config.json <<EOF
 {
     "inbounds": [
