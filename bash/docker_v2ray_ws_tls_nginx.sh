@@ -134,7 +134,7 @@ function install_v2ray_nginx(){
 EOF
     sudo systemctl daemon-reload
     sudo systemctl restart docker
-    docker network create --subnet=192.1.1.0/24 proxynetwork
+    docker network create --ipv6 --subnet=10.1.1.0/24 proxynetwork
     mkdir /v2ray
     mkdir /v2ray/nginx
     mkdir /v2ray/acme
