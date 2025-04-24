@@ -32,7 +32,7 @@ docker rmi $(docker images -q)
 }
 function install(){
     curl -fsSL https://get.docker.com | bash -s docker
-    docker network create --subnet=192.168.219.0/24 hubnet
+    docker network create --ipv6 --subnet=192.168.219.0/24 hubnet
 	mkdir -p /docker
     mkdir -p /docker/speedhub
     mkdir -p /docker/speedhub/acme
