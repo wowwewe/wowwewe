@@ -131,7 +131,7 @@ function install_trojan-go(){
 EOF
     sudo systemctl daemon-reload
     sudo systemctl restart docker
-    docker network create --subnet=192.1.1.0/24 proxynetwork
+    docker network create --ipv6 --subnet=10.1.1.0/24 proxynetwork
     mkdir /trojan-go
     mkdir /trojan-go/acme
     mkdir /trojan-go/trojan-go
