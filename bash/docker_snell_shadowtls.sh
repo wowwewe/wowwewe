@@ -95,7 +95,7 @@ function install_shadowsocks(){
     docker network create --ipv6 --subnet=10.1.1.0/24 proxynetwork
     ufw allow $shadowtls_port
     ufw allow $shadowtls_port/udp
- sudo docker run -d -e PSK=$snell_password -e DNS=$snell_dns --name=snv5 --restart=always --network=proxynetwork --ip 10.1.1.188  wowaqly/snv5
+ sudo docker run -d -e PSK=$snell_password -e DNS=$snell_dns -e PORT=8388 --name=snv5 --restart=always --network=proxynetwork --ip 10.1.1.188  wowaqly/snv5
  sudo docker run  \
             -e MODE=server \
             -e LISTEN=::0:$shadowtls_port  \
