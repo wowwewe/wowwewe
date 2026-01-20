@@ -33,7 +33,7 @@ function yellow(){
 ######################################
 docker stop sn
 docker rm sn
-docker run -d -e PSK=$snell_password -e DNS=$snell_dns --name=snv5 --restart=always -p=$snell_port:8388  wowaqly/snv5
+docker run -d -e PSK=$snell_password -e DNS=$snell_dns -e PORT=$snell_port --name=snv5 --restart=always -p=$snell_port:$snell_port  wowaqly/snv5
 ######################################
     green "======================="
     blue  "snell-shadow-tls搭建完成"
