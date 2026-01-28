@@ -1,0 +1,19 @@
+#!name = YouTube去广告
+
+#!desc =支持pip，后台播放
+
+
+[Rule]
+AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
+
+
+[Script]
+yt.player = type=http-response,
+pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/player,
+requires-body=1,
+max-size=1048576,
+script-path=https://example.com/yt-min-safe.js
+
+[MITM]
+hostname = youtubei.googleapis.com
