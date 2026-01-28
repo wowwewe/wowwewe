@@ -1,21 +1,42 @@
-#!name = YouTube去广告
-
-#!desc =支持pip，后台播放
-
+#!name = YouTube去广告（极简安全内联版）
+#!desc = 仅去广告 + 后台播放，无远程脚本
 
 [Rule]
-AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
-AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
-
-[URL Rewrite]
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
-^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad _ reject-200
-^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads _ reject-200
-^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) _ reject-200
-^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext _ reject-200
+AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
 
 [Script]
-youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=-1,binary-body-mode=1,engine={{{脚本执行引擎}}},script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js,argument="{"lyricLang":"{{{歌词翻译语言}}}","captionLang":"{{{字幕翻译语言}}}","blockUpload":{{{屏蔽上传按钮}}},"blockImmersive":{{{屏蔽选段按钮}}},"debug":{{{启用调试模式}}}}"
+youtube.player = type=http-response,\
+pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/player,\
+requires-body=1,\
+max-size=1048576,\
+script=\
+let body = $response.body;\
+if (!body) { $done({}); }\
+let obj;\
+try {\
+  obj = JSON.parse(body);\
+} catch (e) {\
+  $done({});\
+}\
+\
+/* 去广告 */\
+if (obj.adPlacements) delete obj.adPlacements;\
+if (obj.playerAds) delete obj.playerAds;\
+if (obj.adBreakHeartbeatParams) delete obj.adBreakHeartbeatParams;\
+\
+/* 强制可播放 + 后台 */\
+if (obj.playabilityStatus) {\
+  obj.playabilityStatus.status = \"OK\";\
+  delete obj.playabilityStatus.reason;\
+}\
+\
+/* 去除部分限制标记 */\
+if (obj.videoDetails) {\
+  obj.videoDetails.isLiveContent = false;\
+}\
+\
+$done({ body: JSON.stringify(obj) });
 
 [MITM]
-hostname = %APPEND% -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com
+hostname = youtubei.googleapis.com
