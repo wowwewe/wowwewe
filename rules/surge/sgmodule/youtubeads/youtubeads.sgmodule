@@ -1,0 +1,17 @@
+#!name = YouTube 去广告（Surge 极简安全模板）
+#!desc = 仅 player 响应处理，本地脚本，无远程依赖
+
+[Rule]
+; 禁用 QUIC，避免 UDP 特征
+AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
+
+[Script]
+yt.player = type=http-response,
+pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/player,
+requires-body=1,
+max-size=1048576,
+script-path=Scripts/yt-player-min-safe.js
+
+[MITM]
+hostname = youtubei.googleapis.com
