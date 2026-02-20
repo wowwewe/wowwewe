@@ -1,3 +1,2 @@
-HOST-KEYWORD,nintendo,proxy
-HOST-SUFFIX,ea.com,proxy
-HOST-SUFFIX,easports.com,proxy
+host-suffix,ea.com,proxy
+host-suffix,easports.com,proxy
