@@ -1,56 +1,56 @@
 # 自添规则
-host-suffix,qq.com
-host-suffix,bilivideo.com
-host-suffix,aliyun.com
-host-suffix,qcloud.com
-host-suffix,gaoqing.fm
-host,mk.tianziyu.com
-host-suffix,alibabadns.com
-host-suffix,alicloudccp.com
-host-suffix,aliyuncs.com
-host-suffix,aliyundrive.com
-host-suffix,aliapp.org
-host-suffix,gaoqing.la
-host-suffix,btbtt12.com
-host-suffix,btbtt13.com
-host-suffix,kyzju.com
-host-suffix,hanmi520.com
-host-suffix,apprcn.com
-host-suffix,hanfan.cc
-host-suffix,appcenter.ms
-host-suffix,zijieapi.com
-host-suffix,nfmovies.com
-host-suffix,mypikpak.com
-host-suffix,xunlei.com
-host-suffix,siteintercept.qualtrics.com
-host-suffix,plex.tv
-host-suffix,bitwarden.com
-host-suffix,pwnedpasswords.com
-host-suffix,cloudflare.com
+host-suffix,qq.com, direct
+host-suffix,bilivideo.com, direct
+host-suffix,aliyun.com, direct
+host-suffix,qcloud.com, direct
+host-suffix,gaoqing.fm, direct
+host,mk.tianziyu.com, direct
+host-suffix,alibabadns.com, direct
+host-suffix,alicloudccp.com, direct
+host-suffix,aliyuncs.com, direct
+host-suffix,aliyundrive.com, direct
+host-suffix,aliapp.org, direct
+host-suffix,gaoqing.la, direct
+host-suffix,btbtt12.com, direct
+host-suffix,btbtt13.com, direct
+host-suffix,kyzju.com, direct
+host-suffix,hanmi520.com, direct
+host-suffix,apprcn.com, direct
+host-suffix,hanfan.cc, direct
+host-suffix,appcenter.ms, direct
+host-suffix,zijieapi.com, direct
+host-suffix,nfmovies.com, direct
+host-suffix,mypikpak.com, direct
+host-suffix,xunlei.com, direct
+host-suffix,siteintercept.qualtrics.com, direct
+host-suffix,plex.tv, direct
+host-suffix,bitwarden.com, direct
+host-suffix,pwnedpasswords.com, direct
+host-suffix,cloudflare.com, direct
 
 # hotmail和outlook邮箱
-host,m.hotmail.com
-host,outlook.office365.com
-host,www.bt-tt.com
-host-suffix,tesla.cn
-host-suffix,software.charliemonroe.net
-host-suffix,www.downiestatistics.com
-host-suffix,v3.paddleapi.com
-host-suffix,iptva.top
-host-suffix,enpass.io
-host-suffix,cloud.bang-olufsen.com
-host-suffix,trakt.tv
-host-suffix,1blocker.com
-host-suffix,adtidy.org
-host-suffix,anti-ad.net
-host-suffix,updf.com
-host-suffix,mixpanel.com
-host-suffix,deepl.com
-host-suffix,jumpdesktop.com
-host-suffix,duolingo.com
-host-suffix,bthdtv.com
-host-suffix,doutoutiao.cc
-host-suffix,macpaw.com
-host-suffix,api.revenuecat.com
-host-suffix,cleanmymac.com
-host-suffix,hp.com
+host,m.hotmail.com, direct
+host,outlook.office365.com, direct
+host,www.bt-tt.com, direct
+host-suffix,tesla.cn, direct
+host-suffix,software.charliemonroe.net, direct
+host-suffix,www.downiestatistics.com, direct
+host-suffix,v3.paddleapi.com, direct
+host-suffix,iptva.top, direct
+host-suffix,enpass.io, direct
+host-suffix,cloud.bang-olufsen.com, direct
+host-suffix,trakt.tv, direct
+host-suffix,1blocker.com, direct
+host-suffix,adtidy.org, direct
+host-suffix,anti-ad.net, direct
+host-suffix,updf.com, direct
+host-suffix,mixpanel.com, direct
+host-suffix,deepl.com, direct
+host-suffix,jumpdesktop.com, direct
+host-suffix,duolingo.com, direct
+host-suffix,bthdtv.com, direct
+host-suffix,doutoutiao.cc, direct
+host-suffix,macpaw.com, direct
+host-suffix,api.revenuecat.com, direct
+host-suffix,cleanmymac.com, direct
+host-suffix,hp.com, direct
