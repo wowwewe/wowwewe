@@ -1,35 +1,35 @@
 # 自添规则
-host-suffix,xdrig.com
-host-suffix,access-sngapm.qcloud.com
-host-suffix,apple.news
+host-suffix,xdrig.com, reject
+host-suffix,access-sngapm.qcloud.com, reject
+host-suffix,apple.news, reject
 
 #### 萤石视频 ####
-host,fastgw.ys7.com
-host,ys-video.aipai.com
-host,img.ys7.com
-host,mfs.ys7.com
+host,fastgw.ys7.com, reject
+host,ys-video.aipai.com, reject
+host,img.ys7.com, reject
+host,mfs.ys7.com, reject
 ################
 
-host-suffix,shenyin.name
-host,api.shenyin.name
-host-suffix,archive-digger.com
+host-suffix,shenyin.name, reject
+host,api.shenyin.name, reject
+host-suffix,archive-digger.com, reject
 
 #### t66y ####
-host-suffix,a.d
-host-suffix,nadcd.site
-host-suffix,ccimg.xyz
-host-suffix,bbs.hotavxxx.com
+host-suffix,a.d, reject
+host-suffix,nadcd.site, reject
+host-suffix,ccimg.xyz, reject
+host-suffix,bbs.hotavxxx.com, reject
 ################
 
-host,alexdenk.net
+host,alexdenk.net, reject
 
 #### 多邻国广告跟踪 ####
-host-suffix,doubleclick-cn.net
+host-suffix,doubleclick-cn.net, reject
 ###################
 
-host-suffix,cdnorg.cn
-host-suffix,23img.com
-host-suffix,999tt333cc.com
-host-suffix,picel48.com
-host-suffix,7207y.xyz
-host-suffix,js96110.com.cn
+host-suffix,cdnorg.cn, reject
+host-suffix,23img.com, reject
+host-suffix,999tt333cc.com, reject
+host-suffix,picel48.com, reject
+host-suffix,7207y.xyz, reject
+host-suffix,js96110.com.cn, reject
