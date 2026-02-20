@@ -1,20 +1,35 @@
-##屏蔽清单
-##自添规则
-HOST-SUFFIX,xdrig.com,reject
-HOST-SUFFIX,access-sngapm.qcloud.com,reject
-####萤石视频####
-HOST,fastgw.ys7.com,reject
-HOST,ys-video.aipai.com,reject
-HOST,img.ys7.com,reject
-HOST,mfs.ys7.com,reject
+# 自添规则
+host-suffix,xdrig.com
+host-suffix,access-sngapm.qcloud.com
+host-suffix,apple.news
+
+#### 萤石视频 ####
+host,fastgw.ys7.com
+host,ys-video.aipai.com
+host,img.ys7.com
+host,mfs.ys7.com
 ################
-HOST-SUFFIX,shenyin.name,reject
-HOST,api.shenyin.name,reject
-HOST-SUFFIX,archive-digger.com,reject
+
+host-suffix,shenyin.name
+host,api.shenyin.name
+host-suffix,archive-digger.com
+
+#### t66y ####
+host-suffix,a.d
+host-suffix,nadcd.site
+host-suffix,ccimg.xyz
+host-suffix,bbs.hotavxxx.com
 ################
-#######百度######
-HOST,boxer.baidu.com,reject
-HOST,wakeup.baidu.com,reject
-HOST,mbd.baidu.com,reject
-################
-HOST,alexdenk.net,reject
+
+host,alexdenk.net
+
+#### 多邻国广告跟踪 ####
+host-suffix,doubleclick-cn.net
+###################
+
+host-suffix,cdnorg.cn
+host-suffix,23img.com
+host-suffix,999tt333cc.com
+host-suffix,picel48.com
+host-suffix,7207y.xyz
+host-suffix,js96110.com.cn
