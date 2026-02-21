@@ -20,6 +20,12 @@ RUN curl -L -o /tmp/xray.zip https://github.com/XTLS/Xray-core/releases/download
     && unzip /tmp/xray.zip -d /usr/local/bin/ \
     && chmod +x /usr/local/bin/xray \
     && rm /tmp/xray.zip
+#arm64
+#RUN curl -L -o /tmp/xray.zip https://github.com/XTLS/Xray-core/releases/download/${XRAY_VER}/Xray-linux-arm64-v8a.zip \
+#    && unzip /tmp/xray.zip -d /usr/local/bin/ \
+#    && chmod +x /usr/local/bin/xray \
+#    && rm /tmp/xray.zip
+    
 
 # 创建默认目录
 RUN mkdir -p /etc/xray
