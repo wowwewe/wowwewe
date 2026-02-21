@@ -1,7 +1,7 @@
 ```shell
-docker run -d -e PSK=password -e DNS=1.1.1.1 -e PORT=8388 -p 1231:8388 --name=snv5 --restart=always wowaqly/snv5
+docker run -d --name=tj --restart=always -e psk=passwd -e port=8388 -p 8388:8388 -e d=1.1.1.1  -v /data:/data wowaqly/tj
 ```
 ```shell
-docker run -d -e PSK=password -e DNS=1.1.1.1 -e PORT=8388 -p 1231:8388 --name=snv5 --restart=always wowaqly/snv5:arm64
+docker run -d --name=tj --restart=always -e psk=passwd -e port=8388 -p 8388:8388 -e d=1.1.1.1  -v /data:/data wowaqly/tj:arm64
 ```
 ipv6 " -e network=host "
