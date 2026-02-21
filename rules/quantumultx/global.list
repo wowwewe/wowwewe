@@ -4,7 +4,7 @@ host-suffix,clash.to,proxy
 host-suffix,tempestapp.io,proxy
 host-suffix,gvt1.com,proxy
 host-suffix,google.com,proxy
-process-name,telegram,proxy
+host-keyword,telegram,proxy
 host-suffix,ssr.tools,proxy
 host-suffix,ssr.ac,proxy
 host-suffix,ssr.sx,proxy
