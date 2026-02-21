@@ -6,7 +6,7 @@ docker run -d --name=wgxr   \
 -e wgip=10.1.1.2 \
 -e publickey=publickey \
 -e wgserver=1.1.1.1:51820 \
- --network=host  \
+-p 443:443  \
  wowaqly/wgxr
 ```
 默认端口443
