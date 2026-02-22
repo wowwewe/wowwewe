@@ -28,7 +28,5 @@ RUN mkdir -p /etc/xray
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-# 默认监听端口
-EXPOSE 443
 
 ENTRYPOINT ["/start.sh"]
