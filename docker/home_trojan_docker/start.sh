@@ -41,7 +41,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
         ]
       },
       "streamSettings": {
-        "network": "tcp",
+        "network": "raw",
         "security": "tls",
         "tlsSettings": {
           "alpn": [],
