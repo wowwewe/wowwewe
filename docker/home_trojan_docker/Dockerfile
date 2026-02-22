@@ -25,6 +25,14 @@ RUN curl -L -o /tmp/xray.zip https://github.com/XTLS/Xray-core/releases/download
     && chmod +x /usr/local/bin/tj \
     && rm -rf /tmp/*
 
+# arm64 
+# RUN curl -L -o /tmp/xray.zip https://github.com/XTLS/Xray-core/releases/download/${XRAY_VER}/Xray-linux-arm64-v8a.zip \
+#    && unzip /tmp/xray.zip -d /tmp/xray \
+#    && strip --strip-all /tmp/xray/xray \
+#    && upx -9 /tmp/xray/xray -o /usr/local/bin/tj \
+#    && chmod +x /usr/local/bin/tj \
+#    && rm -rf /tmp/*
+
 # 创建默认目录
 RUN mkdir -p /etc/pogo
 
