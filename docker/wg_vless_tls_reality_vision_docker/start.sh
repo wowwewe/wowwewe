@@ -86,7 +86,7 @@ cat > "$CONFIG_PATH" <<EOF
         "decryption": "none"
       },
       "streamSettings": {
-        "network": "tcp",
+        "network": "raw",
         "security": "reality",
         "realitySettings": {
           "show": false,
