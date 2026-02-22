@@ -40,8 +40,6 @@ RUN mkdir -p /data
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-# 默认监听端口
-EXPOSE 8388
 
 CMD ["bash","/start.sh"]
 
