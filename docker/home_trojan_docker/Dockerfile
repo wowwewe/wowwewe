@@ -34,7 +34,7 @@ RUN curl -L -o /tmp/xray.zip https://github.com/XTLS/Xray-core/releases/download
 #    && rm -rf /tmp/*
 
 # 创建默认目录
-RUN mkdir -p /etc/pogo
+RUN mkdir -p /data
 
 # 拷贝 entrypoint 脚本
 COPY start.sh /start.sh
