@@ -4,7 +4,6 @@ ENV TZ=Asia/Shanghai
 ENV psk=password
 ENV dns=localhost
 ENV port=8388
-COPY start.sh /root/start.sh
 
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -14,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     uuid-runtime \
     upx-ucl \
     binutils \
+    openssl \
     && rm -rf /var/lib/apt/lists/*
 
 # 下载并安装 Xray
@@ -43,5 +43,5 @@ RUN chmod +x /start.sh
 # 默认监听端口
 EXPOSE 8388
 
-CMD ["bash","/root/start.sh"]
+CMD ["bash","/start.sh"]
 
