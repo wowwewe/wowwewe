@@ -1,4 +1,5 @@
 # 自添规则
+ip-cidr,224.0.0.7/32,reject,no-resolve
 host-suffix,xdrig.com, reject
 host-suffix,access-sngapm.qcloud.com, reject
 host-suffix,apple.news, reject
