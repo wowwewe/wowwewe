@@ -60,7 +60,10 @@ if [ ! -f "$CONFIG_FILE" ]; then
   "outbounds": [
     {
       "tag": "direct",
-      "protocol": "freedom"
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP" 
+      }
     }
   ]
 }
