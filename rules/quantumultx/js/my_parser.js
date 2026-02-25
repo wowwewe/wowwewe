@@ -1,54 +1,55 @@
 /**
- * 极简 Surge 转 QX 拒绝规则解析器
- * 功能：
- * 1. DOMAIN -> host
- * 2. DOMAIN-SUFFIX -> host-suffix
- * 3. DOMAIN-KEYWORD -> host-keyword
- * 4. 每一行末尾添加 , reject
+ * Quantumult X 规则转换解析器 (v3 - 支持 no-resolve 移动)
+ * 逻辑：
+ * 1. 转换 DOMAIN -> host 等指令。
+ * 2. 强制添加 , reject。
+ * 3. 检查原规则是否有 no-resolve，如果有，则追加到 reject 后面。
  */
 
-function main() {
-    let body = $resource.content;
-    if (!body) $done({});
+let content = $resource.content;
 
-    let lines = body.split(/\r?\n/);
-    let newLines = lines.map(line => {
-        line = line.trim();
-        
-        // 跳过空行和注释行
-        if (!line || line.startsWith("#") || line.startsWith(";")) {
+if (!content) {
+    $done({});
+} else {
+    const lines = content.split(/\r?\n/);
+    const result = lines.map(line => {
+        let trimLine = line.trim();
+
+        // 1. 跳过注释和空行
+        if (!trimLine || trimLine.startsWith("#") || trimLine.startsWith(";")) {
             return line;
         }
 
-        // 统一转为小写处理，方便匹配
-        let lowerLine = line.toLowerCase();
-
-        // 检查是否包含目标指令
-        if (lowerLine.startsWith("domain-suffix") || 
-            lowerLine.startsWith("domain") || 
-            lowerLine.startsWith("domain-keyword")) {
-            
-            // 1. 替换指令名称 (Surge 到 QX)
-            let processed = line
-                .replace(/DOMAIN-SUFFIX/gi, "host-suffix")
-                .replace(/DOMAIN-KEYWORD/gi, "host-keyword")
-                .replace(/DOMAIN/gi, "host");
-
-            // 2. 移除原有的策略（如果有的话，比如原来的 ,DIRECT 或 ,Proxy）
-            // 这里假设原格式是 DOMAIN-SUFFIX,example.com,POLICY
-            let parts = processed.split(",");
-            let mainPart = parts[0]; // 指令
-            let domainPart = parts[1]; // 域名内容
-            
-            if (mainPart && domainPart) {
-                return `${mainPart.trim()},${domainPart.trim()}, reject`;
-            }
-        }
+        // 2. 将整行按逗号分割并清理空格
+        let parts = trimLine.split(",").map(p => p.trim());
         
-        return line; // 不匹配的行原样返回
+        let cmd = parts[0].toUpperCase();
+        let val = parts[1]; // 域名或关键字
+        
+        // 3. 检查原始规则中是否存在 no-resolve (不区分大小写)
+        const hasNoResolve = parts.some(p => p.toLowerCase() === "no-resolve");
+
+        // 4. 定义指令映射
+        const cmdMap = {
+            "DOMAIN": "host",
+            "DOMAIN-SUFFIX": "host-suffix",
+            "DOMAIN-KEYWORD": "host-keyword"
+        };
+
+        // 5. 如果匹配到目标指令，开始重组
+        if (cmdMap[cmd]) {
+            let newLine = `${cmdMap[cmd]}, ${val}, reject`;
+            
+            // 如果原来有 no-resolve，将其补在 reject 后面
+            if (hasNoResolve) {
+                newLine += ", no-resolve";
+            }
+            return newLine;
+        }
+
+        // 6. 其他不匹配的行（如 IP-CIDR）原样返回
+        return line;
     });
 
-    $done({ content: newLines.join("\n") });
+    $done({ content: result.join("\n") });
 }
-
-main();
