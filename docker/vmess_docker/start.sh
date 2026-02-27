@@ -38,7 +38,16 @@ cat > /root/config.json <<EOF
        "type": "none"
       }
      }
-  ]
+  ]，
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "network": "tcp,udp",
+        "outboundTag": "direct"
+      }
+    ]
+  }
 }
 EOF
 cd /root && ./xray -c /root/config.json
