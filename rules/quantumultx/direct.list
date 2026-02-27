@@ -26,7 +26,7 @@ host-suffix,siteintercept.qualtrics.com, direct
 host-suffix,plex.tv, direct
 host-suffix,bitwarden.com, direct
 host-suffix,pwnedpasswords.com, direct
-host-suffix,cloudflare.com, direct
+#host-suffix,cloudflare.com, direct
 
 # hotmail和outlook邮箱
 host,m.hotmail.com, direct
