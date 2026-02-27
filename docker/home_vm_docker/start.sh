@@ -64,8 +64,32 @@ if [ ! -f "$CONFIG_FILE" ]; then
       "settings": {
         "domainStrategy": "UseIP" 
       }
-    }
-  ]
+     },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "response": {
+       "type": "none"
+      }
+     }
+  ],
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {
+        "outboundTag": "direct",
+        "port": "53"
+      },
+      {
+        "ip": ["10.0.0.0/8","192.168.0.0/16","172.16.0.0/12"],
+        "outboundTag": "direct"
+      },
+      {
+        "network": "tcp,udp",
+        "outboundTag": "block"
+      }
+    ]
+  }
 }
 EOF
 
