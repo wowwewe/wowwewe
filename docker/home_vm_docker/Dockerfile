@@ -1,7 +1,6 @@
 FROM debian
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
-ENV psk=password
 ENV dns=localhost
 ENV port=8388
 
