@@ -1,6 +1,9 @@
 rm -f /root/config.json
 cat > /root/config.json <<EOF
 {
+  "log": {
+    "loglevel": "warning"
+  },
   "inbounds": [
     {
       "listen": "::0",
@@ -22,8 +25,19 @@ cat > /root/config.json <<EOF
   
   "outbounds": [
     {
-      "protocol": "freedom"
-    }
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP" 
+      }
+     },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "response": {
+       "type": "none"
+      }
+     }
   ]
 }
 EOF
