@@ -35,6 +35,9 @@ if [ ! -f "$CONFIG_FILE" ]; then
 
     cat > "$CONFIG_FILE" <<EOF
 {
+  "log": {
+    "loglevel": "warning"
+  },
   "dns": {
     "servers": [
       "$dns"
