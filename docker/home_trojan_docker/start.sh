@@ -137,7 +137,7 @@ echo "==============================================================="
 echo "[CONFIRM] Trojan 密码 (PSK): $FINAL_PSK"
 
 # 提取并打印证书指纹 (SHA256)
-TLS_SHA256=$(openssl x509 -noout -fingerprint -sha256 -in "$KEY_FILE" | sed 's/://g' | cut -d'=' -f2)
+TLS_SHA256=$(openssl x509 -noout -fingerprint -sha256 -in "$CERT_FILE" | sed 's/://g' | cut -d'=' -f2)
 echo "[CONFIRM] TLS-CERT-SHA256: $TLS_SHA256"
 echo "==============================================================="
 
