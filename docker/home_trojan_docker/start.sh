@@ -120,11 +120,14 @@ fi
 ########################################
 if [ ! -f "$CERT_FILE" ] || [ ! -f "$KEY_FILE" ]; then
 echo "[INFO] SSL certificate not found, generating ECC certificate..."
-openssl genpkey -algorithm Ed25519 -out "$KEY_FILE"
+openssl genpkey -algorithm EC \
+    -pkeyopt ec_paramgen_curve:P-384 \
+    -out "$KEY_FILE"
 openssl req -new -x509 -days 3650 \
     -key "$KEY_FILE" \
     -out "$CERT_FILE" \
-    -subj "/UID=Private"
+    -subj "/UID=Private" \
+    -sha512 
 chmod 600 "$KEY_FILE"
 fi
 
