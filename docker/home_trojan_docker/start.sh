@@ -34,6 +34,9 @@ if [ ! -f "$CONFIG_FILE" ]; then
 
     cat > "$CONFIG_FILE" <<EOF
 {
+  "log": {
+    "loglevel": "warning"
+  },
   "dns": {
     "servers": [ "$dns" ]
   },
@@ -65,9 +68,35 @@ if [ ! -f "$CONFIG_FILE" ]; then
     {
       "tag": "direct",
       "protocol": "freedom",
-      "settings": { "domainStrategy": "UseIP" }
-    }
-  ]
+      "settings": {
+        "domainStrategy": "UseIP" 
+      }
+     },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "response": {
+       "type": "none"
+      }
+     }
+  ],
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {
+        "outboundTag": "direct",
+        "port": "53"
+      },
+      {
+        "ip": ["10.0.0.0/8","192.168.0.0/16","172.16.0.0/12"],
+        "outboundTag": "direct"
+      },
+      {
+        "network": "tcp,udp",
+        "outboundTag": "block"
+      }
+    ]
+  }
 }
 EOF
     echo "[INFO] 初始 config.json 已生成。"
