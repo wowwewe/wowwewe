@@ -24,8 +24,8 @@ if [ ! -f "$CONFIG_FILE" ]; then
     fi
 
     # 强制自动生成 39 位强随机密码
-    echo "[INFO] 正在自动生成 39 位强随机密码..."
-    FINAL_PSK=$(openssl rand -base64 32 | tr -dc 'A-Za-z0-9' | head -c 39)
+    echo "[INFO] 正在自动生成 38 位强随机密码..."
+    FINAL_PSK=$(openssl rand -base64 128 | tr -dc 'A-Za-z0-9' | head -c 38)
 
     mkdir -p "$DATA_DIR"
     
