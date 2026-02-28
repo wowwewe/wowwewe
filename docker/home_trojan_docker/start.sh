@@ -119,14 +119,14 @@ fi
 # 2. Generate ECC SSL certificate (only once)
 ########################################
 if [ ! -f "$CERT_FILE" ] || [ ! -f "$KEY_FILE" ]; then
-    echo "[INFO] SSL certificate not found, generating ECC certificate..."
-    openssl ecparam -genkey -name secp384r1 -out "$KEY_FILE"
-    openssl req -new -x509 -days 3650 \
-        -key "$KEY_FILE" \
-        -out "$CERT_FILE" \
-        -subj "/CN=PrivateService" \
-        -sha384
-    chmod 600 "$KEY_FILE"
+echo "[INFO] SSL certificate not found, generating ECC certificate..."
+openssl ecparam -genkey -name P-521 -out "$KEY_FILE"
+openssl req -new -x509 -days 3650 \
+    -key "$KEY_FILE" \
+    -out "$CERT_FILE" \
+    -subj "/UID=Private" \
+    -sha512
+chmod 600 "$KEY_FILE"
 fi
 
 # --- 关键信息确认输出 ---
