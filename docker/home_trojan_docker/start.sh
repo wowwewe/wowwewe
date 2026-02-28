@@ -126,7 +126,7 @@ openssl genpkey -algorithm EC \
 openssl req -new -x509 -days 3650 \
     -key "$KEY_FILE" \
     -out "$CERT_FILE" \
-    -subj "/UID=Private" \
+    -subj "/" \
     -sha512 
 chmod 600 "$KEY_FILE"
 fi
