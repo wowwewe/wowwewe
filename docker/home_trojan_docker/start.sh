@@ -52,7 +52,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
         "network": "raw",
         "security": "tls",
         "tlsSettings": {
-          "alpn": ["651bfbef3c8u1"],
+          "alpn": ["frp-in-tls"],
           "minVersion": "1.3",
           "certificates": [
             {
