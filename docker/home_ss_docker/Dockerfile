@@ -1,8 +1,8 @@
 FROM debian
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
-ENV dns=localhost
 ENV port=8388
+ENV dns=223.5.5.5
 
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -20,16 +20,16 @@ ARG XRAY_VER=v26.2.6
 RUN curl -L -o /tmp/xray.zip https://github.com/XTLS/Xray-core/releases/download/${XRAY_VER}/Xray-linux-64.zip \
     && unzip /tmp/xray.zip -d /tmp/xray \
     && strip --strip-all /tmp/xray/xray \
-    && upx -9 /tmp/xray/xray -o /usr/local/bin/ss \
-    && chmod +x /usr/local/bin/ss \
+    && upx -9 /tmp/xray/xray -o /usr/local/bin/s20 \
+    && chmod +x /usr/local/bin/s20 \
     && rm -rf /tmp/*
 
 # arm64 
 # RUN curl -L -o /tmp/xray.zip https://github.com/XTLS/Xray-core/releases/download/${XRAY_VER}/Xray-linux-arm64-v8a.zip \
 #    && unzip /tmp/xray.zip -d /tmp/xray \
 #    && strip --strip-all /tmp/xray/xray \
-#    && upx -9 /tmp/xray/xray -o /usr/local/bin/ss \
-#    && chmod +x /usr/local/bin/ss \
+#    && upx -9 /tmp/xray/xray -o /usr/local/bin/s20 \
+#    && chmod +x /usr/local/bin/s20 \
 #    && rm -rf /tmp/*
 
 # 创建默认目录
@@ -41,4 +41,3 @@ RUN chmod +x /start.sh
 
 
 CMD ["bash","/start.sh"]
-
