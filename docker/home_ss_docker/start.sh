@@ -13,12 +13,21 @@ echo "[INFO] $(date '+%F %T') Starting initialization..."
 # 1. Generate config.json (only once)
 ########################################
 if [ ! -f "$CONFIG_FILE" ]; then
-    echo "[INFO] $(date '+%F %T') config.json not found, generating..."
-
-    if [ -z "$dns" ] || [ -z "$port" ]; then
-        echo "[ERROR] $(date '+%F %T') Environment variables 'dns' and 'port' must be set."
-        exit 1
+    echo "[INFO] $(date '+%F %T') config.json not found, 生成config..."
+    # ... 这里是生成文件的代码 (略) ...
+else
+    # ↓↓↓ 将这行代码添加在 else 下方 ↓↓↓
+    echo -e "\033[1;32m[NOTICE] $(date '+%F %T') 发现已存在的 config.json，将直接使用该文件启动，不会覆盖你的手动修改！\033[0m"
+    
+    echo "[INFO] $(date '+%F %T') config.json already exists, skipping."
+    # 容器如果重启，直接从备份的文件中读取密码变量用来展示
+    if [ -f "$KEY_INFO_FILE" ]; then
+        source "$KEY_INFO_FILE"
+    else
+        SERVER_KEY="[Unknown - Check config.json]"
     fi
+fi
+
 
     mkdir -p /data
 
