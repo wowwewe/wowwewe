@@ -44,7 +44,8 @@ if [ ! -f "$CONFIG_FILE" ]; then
       "settings": {
         "method": "$METHOD",
         "password": "$SERVER_KEY",
-        "network": "tcp,udp"
+        "network": "tcp,udp",
+        "uinit" : "16"
       }
     }
   ],
