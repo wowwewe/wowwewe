@@ -75,6 +75,10 @@ if [ ! -f "$CONFIG_FILE" ]; then
         "port": "53"
       },
       {
+        "keyword:":"udp-over-tcp",
+        "outboundTag": "direct"
+      },
+      {
         "ip": ["10.0.0.0/8","192.168.0.0/16","172.16.0.0/12"],
         "outboundTag": "direct"
       },
