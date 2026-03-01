@@ -47,7 +47,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
         "network": "tcp,udp"
         },
       "streamSettings": {
-        "network": "tcp"
+        "network": "raw"
       }
     }
   ],
