@@ -14,24 +14,15 @@ echo "[INFO] $(date '+%F %T') Starting initialization..."
 ########################################
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "[INFO] $(date '+%F %T') config.json not found, 生成config..."
-    # ... 这里是生成文件的代码 (略) ...
-else
-    # ↓↓↓ 将这行代码添加在 else 下方 ↓↓↓
-    echo -e "\033[1;32m[NOTICE] $(date '+%F %T') 发现已存在的 config.json，将直接使用该文件启动，不会覆盖你的手动修改！\033[0m"
-    
-    echo "[INFO] $(date '+%F %T') config.json already exists, skipping."
-    # 容器如果重启，直接从备份的文件中读取密码变量用来展示
-    if [ -f "$KEY_INFO_FILE" ]; then
-        source "$KEY_INFO_FILE"
-    else
-        SERVER_KEY="[Unknown - Check config.json]"
-    fi
-fi
 
+    if [ -z "$dns" ] || [ -z "$port" ]; then
+        echo "[ERROR] $(date '+%F %T') Environment variables 'dns' and 'port' must be set."
+        exit 1
+    fi
 
     mkdir -p /data
 
-    # [span_1](start_span)针对 2022-blake3-aes-256-gcm，严格生成 32 字节的 Base64 密钥[span_1](end_span)
+    # 针对 2022-blake3-aes-256-gcm，严格生成 32 字节的 Base64 密钥
     SERVER_KEY=$(openssl rand -base64 32)
     echo "SERVER_KEY=\"$SERVER_KEY\"" > "$KEY_INFO_FILE"
 
@@ -95,7 +86,9 @@ EOF
 
     echo "[INFO] $(date '+%F %T') config.json generated."
 else
+    echo -e "\033[1;32m[NOTICE] $(date '+%F %T') 发现已存在的 config.json，将直接使用该文件启动，不会覆盖你的手动修改！\033[0m"
     echo "[INFO] $(date '+%F %T') config.json already exists, skipping."
+    # 容器如果重启，直接从备份的文件中读取密码变量用来展示
     if [ -f "$KEY_INFO_FILE" ]; then
         source "$KEY_INFO_FILE"
     else
@@ -119,5 +112,5 @@ echo "=================================================="
 
 echo "[INFO] $(date '+%F %T') Initialization complete."
 
-# 启动 xray 服务（如果是基于 xray 官方镜像，命令一般是 xray run；如果是旧镜像可能使用 ss run，请根据您的 Dockerfile 调整）
-exec s20 run -config /data/config.json
+# 启动 xray 服务
+exec s20 run -config "$CONFIG_FILE"
