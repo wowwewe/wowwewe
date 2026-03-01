@@ -3,8 +3,8 @@
 set -e
 
 CONFIG_FILE="/data/config.json"
-# 使用一个隐藏文件专门存放生成的密码，方便容器重启时读取打印，避免使用正则去解析 JSON
 KEY_INFO_FILE="/data/.ss_keys"
+# 强制指定为 2022-blake3-aes-256-gcm 算法
 METHOD="2022-blake3-aes-256-gcm"
 
 echo "[INFO] $(date '+%F %T') Starting initialization..."
@@ -15,7 +15,6 @@ echo "[INFO] $(date '+%F %T') Starting initialization..."
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "[INFO] $(date '+%F %T') config.json not found, generating..."
 
-    # 仅保留 dns 和 port 作为强制要求传入的环境变量
     if [ -z "$dns" ] || [ -z "$port" ]; then
         echo "[ERROR] $(date '+%F %T') Environment variables 'dns' and 'port' must be set."
         exit 1
@@ -23,14 +22,15 @@ if [ ! -f "$CONFIG_FILE" ]; then
 
     mkdir -p /data
 
-    # 针对 2022-blake3-aes-256-gcm，Xray 官方要求使用 32 字节且使用 Base64 编码的密钥 [cite: 307, 308]
-    # Shadowsocks 2022 规范中，服务端需要配置 "Server Password" (用于防主动探测机制) 和 "User Password" (针对具体用户)
+    # [span_1](start_span)针对 2022-blake3-aes-256-gcm，严格生成 32 字节的 Base64 密钥[span_1](end_span)
     SERVER_KEY=$(openssl rand -base64 32)
-    # 存储生成的密钥以便容器重启时可以直接在 log 中打印
     echo "SERVER_KEY=\"$SERVER_KEY\"" > "$KEY_INFO_FILE"
 
     cat > "$CONFIG_FILE" <<EOF
 {
+  "log": {
+    "loglevel": "warning"
+  },
   "dns": {
     "servers": [
       "$dns"
@@ -38,13 +38,13 @@ if [ ! -f "$CONFIG_FILE" ]; then
   },
   "inbounds": [
     {
-      "listen": "::0",
+      "listen": "::",
       "port": $port,
       "protocol": "shadowsocks",
       "settings": {
-        "network": "tcp,udp",
         "method": "$METHOD",
-        "password": "$SERVER_KEY"
+        "password": "$SERVER_KEY",
+        "network": "tcp,udp"
       }
     }
   ],
@@ -55,15 +55,38 @@ if [ ! -f "$CONFIG_FILE" ]; then
       "settings": {
         "domainStrategy": "UseIP" 
       }
-    }
-  ]
+     },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "response": {
+       "type": "none"
+      }
+     }
+  ],
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {
+        "outboundTag": "direct",
+        "port": "53"
+      },
+      {
+        "ip": ["10.0.0.0/8","192.168.0.0/16","172.16.0.0/12"],
+        "outboundTag": "direct"
+      },
+      {
+        "network": "tcp,udp",
+        "outboundTag": "block"
+      }
+    ]
+  }
 }
 EOF
 
     echo "[INFO] $(date '+%F %T') config.json generated."
 else
     echo "[INFO] $(date '+%F %T') config.json already exists, skipping."
-    # 容器如果重启，直接从备份的文件中读取密码变量用来展示
     if [ -f "$KEY_INFO_FILE" ]; then
         source "$KEY_INFO_FILE"
     else
@@ -74,16 +97,18 @@ fi
 ########################################
 # 2. Print Configuration Details
 ########################################
-# 打印在控制台，可通过 docker logs <容器名> 查看
 echo "=================================================="
 echo " Shadowsocks 2022 Server Configuration"
 echo "=================================================="
 echo " Method          : $METHOD"
 echo " Server Password : $SERVER_KEY"
+echo " Port            : $port"
 echo "--------------------------------------------------"
+echo " UoT / sp.v2 is natively supported by the server."
+echo " Just configure uot: true and UoTVersion: 2 on the client."
 echo "=================================================="
 
 echo "[INFO] $(date '+%F %T') Initialization complete."
 
-# 启动 xray 服务
-exec ss run -config "$CONFIG_FILE"
+# 启动 xray 服务（如果是基于 xray 官方镜像，命令一般是 xray run；如果是旧镜像可能使用 ss run，请根据您的 Dockerfile 调整）
+exec s20 run -config /data/config.json
