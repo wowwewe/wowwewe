@@ -4,6 +4,10 @@ host-suffix,xdrig.com, reject
 host-suffix,access-sngapm.qcloud.com, reject
 host-suffix,apple.news, reject
 
+##### 抖音 #####
+host-suffix,bdgp.cc, reject
+host-suffix,douyincdn.com, reject
+###############
 #### 萤石视频 ####
 host,fastgw.ys7.com, reject
 host,ys-video.aipai.com, reject
@@ -18,7 +22,6 @@ host-suffix,archive-digger.com, reject
 #### t66y ####
 host-suffix,a.d, reject
 host-suffix,nadcd.site, reject
-host-suffix,ccimg.xyz, reject
 host-suffix,bbs.hotavxxx.com, reject
 ################
 
