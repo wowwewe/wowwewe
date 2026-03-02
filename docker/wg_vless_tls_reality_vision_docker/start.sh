@@ -144,11 +144,6 @@ if [ ! -f "$CONFIG_PATH" ]; then
           "tcpKeepAliveIdle": 30,
           "tcpFastOpen": false
         }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls", "quic"],
-        "metadataOnly": false
       }
     }
   ],
