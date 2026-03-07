@@ -108,30 +108,23 @@ events {
     worker_connections 1024;
 }
 http {
-    # 彻底关闭日志提高安全性
     access_log off;
     error_log /dev/null emerg;
     server_tokens off;
-
-    # 强化安全响应头
     add_header X-Content-Type-Options nosniff;
     add_header X-XSS-Protection "1; mode=block";
     add_header X-Frame-Options DENY;
 
     server {
         listen 20987 ssl;
-
         ssl_certificate /data/ssl/server.crt;
         ssl_certificate_key /data/ssl/server.key;
         ssl_protocols TLSv1.3;
         ssl_prefer_server_ciphers on;
         error_page 401 /401.html;
-        # 直接全局返回 401
         location / {
             return 401;
         }
-
-        # 动态伪装错误页，通过 $msec 和 $request_id 让每次访问的 Reference # 均不相同
         location = /401.html {
             internal;
             default_type text/html;
