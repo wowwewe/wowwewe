@@ -116,7 +116,7 @@ http {
     add_header X-Frame-Options DENY;
 
     server {
-        listen 20987 ssl;
+        listen 127.0.0.1:20987 ssl;
         ssl_certificate /data/ssl/server.crt;
         ssl_certificate_key /data/ssl/server.key;
         ssl_protocols TLSv1.3;
